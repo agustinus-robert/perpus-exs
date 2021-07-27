@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'front\home@index');
+Route::get('/buku-index','buku\BukuController@index');
+Route::get('/buku-add','buku\BukuController@tambah');

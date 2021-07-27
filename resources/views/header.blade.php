@@ -19,7 +19,7 @@
                 <a class="nav-link active" aria-current="page" href="{{url('/')}}">Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Koleksi Buku</a>
+                <a class="nav-link" href="{{url('buku-index')}}">Koleksi Buku</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" tabindex="-1">Peminjaman</a>
@@ -39,13 +39,13 @@
         <div class='container'>
       
 
-            <div class="container" style='min-height:465px;'>
+            <div class="container">
                 @yield('konten')
             </div>
             
         </div>
         <!-- Copyright -->
-        <footer>
+        <footer class='footer fixed-bottom'>
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyleft:
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">App v1</a>
