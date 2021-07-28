@@ -1,3 +1,5 @@
 @extends('header')
 
-@livewire('buku.book-livewire')
+@section('konten')
+    @livewire('buku.book-livewire')
+@endsection

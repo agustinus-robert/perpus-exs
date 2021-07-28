@@ -51,7 +51,7 @@
             
         </div>
         <!-- Copyright -->
-        @livewireScripts
+       
         <footer class='footer fixed-bottom'>
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyleft:
@@ -59,5 +59,6 @@
   </div>
   <!-- Copyright -->
 </footer>
+        @livewireScripts
     </body>
 </html>
