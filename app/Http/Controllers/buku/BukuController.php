@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\bukuModel as Buku;
 use DataTables;
+use Session;
 
 class BukuController extends Controller
 {
@@ -22,6 +23,8 @@ class BukuController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
                         $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
+                        $btn .= "|";
+                        $btn .= '<a href="'.url('delete_buku/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
@@ -30,6 +33,15 @@ class BukuController extends Controller
 
         return view('buku.buku');
 
+    }
+    
+    public function hapus($id){ 
+        $get_sts = Buku::where('id', $id)->delete();
+        
+        if($get_sts){
+           Session::flash('message-hapus', "Buku berhasil dihapus");
+           return redirect('/getDaftarBuku');
+        }
     }
     
     public function edit($id){

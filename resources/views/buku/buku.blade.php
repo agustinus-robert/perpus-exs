@@ -23,13 +23,22 @@
               </nav>
         </div>
     </div>
+    
+        @if (session()->has('message-hapus'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} Buku berhasil dihapus
+                    </div>
+                </div>
+            @endif
+            
                 <table class="table table-bordered data-table">
                 <thead>
                     <tr>
                         <th width="50">No</th>
                         <th>Judul</th>
                         <th>Pengarang</th>
-                        <th width="100px">Action</th>
+                        <th width="200px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,9 +67,8 @@
             {data: 'action', name: 'action', orderable: false, searchable: false},
 
         ]
-
     });
-
+    
   });
 
 </script>
