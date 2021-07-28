@@ -35,53 +35,25 @@
     
     
         <form wire:submit.prevent="masukBuku">
-                <div class="col-xs-6 form-group mb-2">
-                        <label>Nomor Isbn</label>
-                        <input class="form-control" type="text" wire:model="no_isbn"/>
-                        @error('no_isbn')
-                            <span class="bg-danger text-white">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-             
-                <div class="col-xs-6 mb-2">  
+              
+                <div class="col-xs-12 mb-2">  
                     <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                              <label>Judul Buku</label>
-                                <input class="form-control" type="text" wire:model="judul_buku" placeholder="Judul Buku"/>
+                        <div class="col-xs-12 ">
+                              <label>Qty Buku</label>
+                                <input class="form-control" type="text" wire:model="qty" placeholder="Massukan jumlah buku"/>
                         @error('judul_buku')
                             <span class="bg-danger text-white">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <label>Pengarang</label>
-                                <input class="form-control" type="text" wire:model="pengarang" placeholder="Pengarang"/>
-                                @error('pengarang')
-                                    <span class="bg-danger text-white">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        </div>
+                        </div>      
                     </div>
                 </div>
-            
-                <div class="col-xs-6 form-group mb-3">
-                        <label>Penerbit</label>
-                        <input class="form-control" wire:model="penerbit" type="text" />
-                        @error('penerbit')
-                            <span class="bg-danger text-white">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-            
+                     
                 <div class='col-md-12 form-group'>
                     <div class="col text-center">
                     
-                     <button type="submit" class="btn btn-primary">masuk</button>
+                     <button type="submit" class="btn btn-primary">Tambah Qty</button>
                     </div>
                 </div>
         </form>

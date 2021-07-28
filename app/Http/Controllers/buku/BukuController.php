@@ -30,9 +30,12 @@ class BukuController extends Controller
 
         }
 
-
         return view('buku.buku');
 
+    }
+    
+    public function tambah_qty_buku(){
+        return view('buku.qty_buku');
     }
     
     public function hapus($id){ 
