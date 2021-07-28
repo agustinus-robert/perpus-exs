@@ -22,6 +22,16 @@
         </div>
     </div>
 <div class="row">
+        
+            @if (session()->has('message'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} Silahkan, check pada <a href="{{url('/getDaftarBuku')}}">Daftar Buku</a>
+                    </div>
+                </div>
+            @endif
+    
+    
         <form wire:submit.prevent="masukBuku">
                 <div class="col-xs-6 form-group mb-2">
                         <label>Nomor Isbn</label>

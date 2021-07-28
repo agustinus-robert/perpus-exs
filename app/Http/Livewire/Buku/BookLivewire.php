@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Livewire\Buku;
-
+use Illuminate\Support\Facades\DB;
+use App\bukuModel as bM;
+use Session;
 use Livewire\Component;
 
 class BookLivewire extends Component
@@ -23,31 +25,23 @@ class BookLivewire extends Component
         
         $arr_masuk = [
           'isbn' => $this->no_isbn,
-          'judul_buku' => $this->judul_buku,
+          'judul' => $this->judul_buku,
           'pengarang' => $this->pengarang,
           'penerbit' => $this->penerbit
         ];
         
-        dd($arr_masuk);
+  
         
         DB::beginTransaction();
         try {
           
-           epa::where('id', $this->ids)
-                    ->update($this->arr);
-          //  Storage::delete($employee->file);
-         
-          //  \Storage::disk('public')->delete($this->photo->getClientOriginalName());
-           if(!empty($this->photo)){
-            \Storage::disk('public')->put($this->photo->getClientOriginalName(), file_get_contents($this->photo));
-           }
-           
+           bM::insert($arr_masuk);
+        
            DB::commit();
            
-           Session::flash('message', "Artikel telah diedit");
-           return redirect('dashboard');
+           Session::flash('message', "Buku telah dimassukan");
+           return redirect('buku-add');
         } catch (\Exception $e) {
-            \Storage::disk('public')->delete($this->photo->getClientOriginalName());
             DB::rollback();
             dd($e);
         }
