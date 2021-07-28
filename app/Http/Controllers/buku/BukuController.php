@@ -21,9 +21,7 @@ class BukuController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
-                        $btn .= " | ";
-                        $btn .= '<a href="'.url('get_hapus_buku/'.$row->id).'" class="edit btn btn-danger btn-sm">Hapus</a>';
+                        $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
@@ -32,11 +30,6 @@ class BukuController extends Controller
 
         return view('buku.buku');
 
-    }
-
-    public function get_id_buku($id){
-        $data['id'] = $id;
-        return view('buku.edit', $data);
     }
     
     

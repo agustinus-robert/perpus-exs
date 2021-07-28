@@ -29,7 +29,7 @@
                         <th width="50">No</th>
                         <th>Judul</th>
                         <th>Pengarang</th>
-                        <th width="200px">Action</th>
+                        <th width="100px">Action</th>
                     </tr>
                 </thead>
                 <tbody>

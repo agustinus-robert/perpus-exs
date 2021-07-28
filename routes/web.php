@@ -17,5 +17,3 @@ Route::get('/', 'front\home@index');
 Route::get('/buku-index','buku\BukuController@index');
 Route::get('/getDaftarBuku','buku\BukuController@getDaftarBuku')->name('bk');
 Route::get('/buku-add','buku\BukuController@tambah');
-
-Route::get('get_edit_buku/{id}','buku\BukuController@get_id_buku');
