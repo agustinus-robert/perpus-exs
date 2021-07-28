@@ -20,3 +20,4 @@ Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 
 Route::get('/get_edit_buku/{id}','buku\BukuController@edit');
+Route::get('/pengunjung');
