@@ -15,7 +15,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="{{url('/buku-add')}}">Tambah Buku</a>
                     </li>
-                    
+                     <li class="nav-item">
+                      <a class="nav-link" href="{{url('/buku-add')}}">Setting Buku</a>
+                    </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Laporan Buku</a>
                     </li>
