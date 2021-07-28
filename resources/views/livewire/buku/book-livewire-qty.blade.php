@@ -33,9 +33,15 @@
                 </div>
             @endif
     
-    
+        <select class="form-control" wire:change="getbook($event.target.value)">
+            <option value="none">None</option>
+            <?php foreach($semua_buku as $k => $v){  ?>
+            <option value="{{$v['id']}}">{{$v['judul']}}</option>
+            <?php } ?>
+        </select>
+            
         <form wire:submit.prevent="masukBuku">
-              
+                <input type="text" class="form-control" wire:model="id_buku" />
                 <div class="col-xs-12 mb-2">  
                     <div class="row">
                         <div class="col-xs-12 ">
