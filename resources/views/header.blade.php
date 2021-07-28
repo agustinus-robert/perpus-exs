@@ -10,12 +10,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-        
-
-    
-    
-
-
+        @livewireStyles
     </head>
     <body>
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,6 +51,7 @@
             
         </div>
         <!-- Copyright -->
+        @livewireScripts
         <footer class='footer fixed-bottom'>
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyleft:
