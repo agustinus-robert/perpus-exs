@@ -51,15 +51,15 @@
                 </div>
             </div>
             
-        <form wire:submit.prevent="masukBuku">
+        <form wire:submit.prevent="masukBukuQty">
                 <input type="hidden" class="form-control" wire:model="id_buku" />
                 <div class="col-xs-12 mb-2">  
                     <div class="row">
                         <div class="col-xs-12 mb-2 text-center">
                               <label>Qty Buku</label>
                                 <input class="form-control text-center" type="text" wire:model="qty" placeholder="Massukan jumlah buku"/>
-                        @error('judul_buku')
-                            <span class="bg-danger text-white">
+                        @error('qty')
+                            <span class="bg-danger text-white form-control">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror

@@ -13,8 +13,33 @@ class BookLivewireQty extends Component
     public $pilih_sup;
     public $nama_buku;
     
-    public function addqty(){
-      
+    public function masukBukuQty(){
+         $arr_masuk = [
+          'id_buku' => $this->id_buku,
+          'qty' => $this->qty,
+          'jumlah_buku' => $this->qty,
+          'supplier_id' => $this->pilih_sup
+        ];
+         
+        if(!is_numeric($this->qty)){
+            $this->addError('qty', 'Harus berisi angka');
+        } else {
+            
+            dd($arr_masuk);
+            DB::beginTransaction();
+            try {
+
+               sB::insert($arr_masuk);
+
+               DB::commit();
+
+               Session::flash('message', "Quantity buku telah ditambah");
+               return redirect('buku-add');
+            } catch (\Exception $e) {
+                DB::rollback();
+                dd($e);
+            }
+        }
     }
     
     public function getbook($id){
@@ -31,16 +56,16 @@ class BookLivewireQty extends Component
            foreach($gets as $k => $v){
               $this->id_buku = $v['id_b'];
               $this->nama_buku = $v['judul'];
-              if(!empty($v['jml_buku'])){
-                $this->qty = $v['jml_buku'];
-              } else {
-                $this->qty = 0;
-              }
+//              if(!empty($v['jml_buku'])){
+//                $this->qty = $v['jml_buku'];
+//              } else {
+//                $this->qty = 0;
+//              }
            }
          }else{
              $this->id_buku = 0;
              $this->nama_buku = "Data buku tidak ada";
-             $this->qty = "Data buku tidak ada";
+            // $this->qty = "Data buku tidak ada";
          }
     }
     
