@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Buku;
 use App\bukuModel as bM;
 use App\supBuku as sB;
+use App\jmlBuku as jB;
+use Session;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -16,25 +18,24 @@ class BookLivewireQty extends Component
     public function masukBukuQty(){
          $arr_masuk = [
           'id_buku' => $this->id_buku,
-          'qty' => $this->qty,
           'jumlah_buku' => $this->qty,
-          'supplier_id' => $this->pilih_sup
+          'supplier_id' => $this->pilih_sup,
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s')
         ];
          
         if(!is_numeric($this->qty)){
             $this->addError('qty', 'Harus berisi angka');
         } else {
-            
-            dd($arr_masuk);
             DB::beginTransaction();
             try {
 
-               sB::insert($arr_masuk);
+               jB::insert($arr_masuk);
 
                DB::commit();
 
                Session::flash('message', "Quantity buku telah ditambah");
-               return redirect('buku-add');
+               return redirect('qty_buku');
             } catch (\Exception $e) {
                 DB::rollback();
                 dd($e);
