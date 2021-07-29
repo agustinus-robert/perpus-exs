@@ -38,7 +38,9 @@ class BookLivewireQty extends Component
               }
            }
          }else{
-             dd("No data");
+             $this->id_buku = 0;
+             $this->nama_buku = "Data buku tidak ada";
+             $this->qty = "Data buku tidak ada";
          }
     }
     
