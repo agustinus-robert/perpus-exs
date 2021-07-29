@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'front\home@index');
 Route::get('/buku-index','buku\BukuController@index');
 Route::get('/getDaftarBuku','buku\BukuController@getDaftarBuku')->name('bk');
+Route::get('/getLaporBuku','buku\BukuController@getLaporanBuku')->name('lb');
+
 Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
