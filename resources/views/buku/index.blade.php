@@ -19,7 +19,7 @@
                       <a class="nav-link" href="{{url('/qty_buku')}}">Setting Buku</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Laporan Buku</a>
+                      <a class="nav-link" href="{{url('/getLaporBuku')}}">Laporan Buku</a>
                     </li>
                   </ul>
                 </div>
