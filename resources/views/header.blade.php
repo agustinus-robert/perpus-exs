@@ -31,7 +31,7 @@
                 <a class="nav-link" href="{{url('index_pengunjung')}}">Pengunjung</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1">Peminjaman</a>
+                <a class="nav-link" href="{{url('index_peminjaman')}}" tabindex="-1">Peminjaman</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" tabindex="-1">Pengembalian</a>

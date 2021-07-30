@@ -13,7 +13,7 @@
                       <a class="nav-link" href="{{url('/getDaftarBuku')}}">Laporan Peminjaman</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{url('/buku-add')}}">Transaksi Peminjaman</a>
+                      <a class="nav-link" href="{{url('/transaksi_peminjaman')}}">Transaksi Peminjaman</a>
                     </li>
                   </ul>
                 </div>
