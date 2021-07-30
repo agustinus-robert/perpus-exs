@@ -33,6 +33,8 @@ class PinjamController extends Controller
     }
     
     public function get_pinjam_pengunjung($id){
-        dd($id);
+       $data['pengunjung'] = Pp::where('id', $id)->get()->toArray();
+       
+       return View('peminjaman.peminjaman_trans', $data);
     }
 }
