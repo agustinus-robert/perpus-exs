@@ -28,7 +28,7 @@
                 <a class="nav-link" href="{{url('buku-index')}}">Koleksi Buku</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url('pengunjung')}}">Pengunjung</a>
+                <a class="nav-link" href="{{url('index_pengunjung')}}">Pengunjung</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" tabindex="-1">Peminjaman</a>
