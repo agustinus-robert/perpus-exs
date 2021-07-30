@@ -13,7 +13,7 @@
                       <a class="nav-link" href="{{url('/getDaftarPengunjung')}}">Daftar Pengunjung</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{url('/buku-add')}}">Tambah Pengunjung</a>
+                      <a class="nav-link" href="{{url('/tambah_pengunjung')}}">Tambah Pengunjung</a>
                     </li>
                   </ul>
                 </div>

@@ -19,6 +19,7 @@ Route::get('/getDaftarBuku','buku\BukuController@getDaftarBuku')->name('bk');
 Route::get('/getLaporBuku','buku\BukuController@getLaporanBuku')->name('lb');
 
 Route::get('/index_pengunjung','pengunjung\PengujungController@index');
+Route::get('/tambah_pengunjung','pengunjung\PengujungController@tambah');
 Route::get('/getDaftarPengunjung','pengunjung\PengujungController@getDaftarPengunjung')->name('pb');
 
 Route::get('/buku-add','buku\BukuController@tambah');

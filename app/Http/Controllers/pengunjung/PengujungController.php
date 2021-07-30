@@ -14,6 +14,10 @@ class PengujungController extends Controller
        return View('pengunjung.index');
     }
     
+    public function tambah(){
+        return View('pengunjung.tambah_pengunjung');
+    }
+    
     public function getDaftarPengunjung(Request $request){
         if ($request->ajax()) {
 
