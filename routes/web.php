@@ -22,6 +22,8 @@ Route::get('/index_pengunjung','pengunjung\PengujungController@index');
 Route::get('/tambah_pengunjung','pengunjung\PengujungController@tambah');
 Route::get('/getDaftarPengunjung','pengunjung\PengujungController@getDaftarPengunjung')->name('pb');
 
+Route::get('/index_peminjaman','peminjaman\PinjamController@index');
+
 Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
