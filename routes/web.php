@@ -23,6 +23,7 @@ Route::get('/tambah_pengunjung','pengunjung\PengujungController@tambah');
 Route::get('/getDaftarPengunjung','pengunjung\PengujungController@getDaftarPengunjung')->name('pb');
 
 Route::get('/index_peminjaman','peminjaman\PinjamController@index');
+Route::get('/transaksi_peminjaman','peminjaman\PinjamController@transaksi_pemijaman')->name('tb');
 
 Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
