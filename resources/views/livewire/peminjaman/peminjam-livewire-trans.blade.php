@@ -1,9 +1,11 @@
 <div>
      <div class='row p-4'>
-        <h2 class='text-center'>Kelola Peminjaman Buku</h2>
+         <div class="col-md-12">
+          <h2 class='text-center'>Kelola Peminjaman Buku</h2>
+         </div>
         <hr>
-        <div class='row justify-content-center'>
-            <nav class="col-md-6 navbar navbar-expand-lg navbar-light bg-light">
+        <div class='col-md-6 mx-auto'>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
@@ -18,7 +20,7 @@
         </div>
     </div>
     
-<div class="row">
+    <div class="row">
         
             @if (session()->has('message'))
                 <div class="col-md-12">
@@ -29,13 +31,12 @@
             @endif
     
     
-        <form wire:submit.prevent="masukBuku">
+        <form wire:submit.prevent="masukTransPinjam" class="col-md-12">
                 
                 <div class="row col-xs-12 form-group mb-2">
                     <table class="table">
                         <thead class="text-center"> 
                             <tr>
-                                <th>Id</th>
                                 <th>No Isbn</th>
                                 <th>Judul Buku</th>
                                 <th>Jumlah Pinjam</th>
@@ -43,6 +44,19 @@
                             </tr>
                         </thead>
                         
+                        <tbody class="text-center">
+                            <td></td>
+                            
+                            <td>
+                                <select style="width:200px;" wire:model="buku_pilih" wire:change="get_id_buku($event.target.value)" class="selectpicker" data-live-search="true">
+                                   <option value="AL">Alabama</option>
+                                   <option value="WY">Wyoming</option>
+                                </select>
+                            </td>
+                            
+                            <td></td>
+                            <td></td>
+                        </tbody>
                     </table>
                 </div>
              
@@ -56,4 +70,11 @@
                 </div>
         </form>
     </div>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.selectpicker').selectpicker();
+    });
+</script>
 </div>
+
