@@ -23,12 +23,16 @@ class PinjamController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Kelola Peminjaman</a>';
+                        $btn = '<a href="'.url('get_pinjam_pengunjung/'.$row->id).'" class="edit btn btn-warning btn-sm">Kelola Peminjaman</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
         }
         
         return View('peminjaman.daftar_pinjam');
+    }
+    
+    public function get_pinjam_pengunjung($id){
+        dd($id);
     }
 }
