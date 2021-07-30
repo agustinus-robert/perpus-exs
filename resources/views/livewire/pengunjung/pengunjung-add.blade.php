@@ -22,16 +22,16 @@
             @if (session()->has('message'))
                 <div class="col-md-12">
                     <div class="alert alert-success">
-                        {{ session('message') }} Silahkan, check pada <a href="{{url('/getDaftarBuku')}}">Daftar Buku</a>
+                        {{ session('message') }} Silahkan, check pada <a href="{{url('/getDaftarPengunjung')}}">Daftar Pengunjung</a>
                     </div>
                 </div>
             @endif
     
     
-        <form wire:submit.prevent="masukBuku">
+        <form wire:submit.prevent="addPengunjung">
                 <div class="col-xs-6 form-group mb-2">
                         <label>Nama Pengunjung</label>
-                        <input class="form-control" type="text" wire:model="no_isbn"/>
+                        <input class="form-control" type="text" wire:model="nama_pengunjung" placeholder="nama pengunjung" />
                         @error('no_isbn')
                             <span class="bg-danger text-white">
                                 <strong>{{ $message }}</strong>
@@ -40,8 +40,8 @@
                 </div>
             
              <div class="col-xs-6 form-group mb-3">
-                        <label>Nomor Kartu</label>
-                        <input class="form-control" wire:model="penerbit" type="text" />
+                        <label>NIK/No Ktp/No kartu Pelajar</label>
+                        <input class="form-control" wire:model="nomor_kartu" type="text" placeholder="Nomor Kartu (Diisi oleh admin perpus)"/>
                         @error('penerbit')
                             <span class="bg-danger text-white">
                                 <strong>{{ $message }}</strong>
@@ -52,8 +52,8 @@
                 <div class="col-xs-6 mb-2">  
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                              <label>Tanggal Lahir</label>
-                                <input class="form-control" type="text" wire:model="judul_buku" placeholder="Judul Buku"/>
+                              <label>Tanggal Lahir (Sesuai KTP)</label>
+                                <input class="form-control" type="date" wire:model="tgl_lahir" />
                         @error('judul_buku')
                             <span class="bg-danger text-white">
                                 <strong>{{ $message }}</strong>
@@ -61,8 +61,8 @@
                         @enderror
                         </div>
                         <div class="col-xs-12 col-sm-6">
-                            <label>Alamat</label>
-                                <input class="form-control" type="text" wire:model="pengarang" placeholder="Pengarang"/>
+                            <label>Alamat (Domisili Sekarang)</label>
+                                <input class="form-control" type="text" wire:model="alamat" placeholder="Alamat"/>
                                 @error('pengarang')
                                     <span class="bg-danger text-white">
                                         <strong>{{ $message }}</strong>
