@@ -1,43 +1,82 @@
-<div>
-     <div class='row p-4'>
-         <div class="col-md-12">
-          <h2 class='text-center'>Kelola Peminjaman Buku</h2>
-         </div>
-        <hr>
-        <div class='col-md-6 mx-auto'>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{{url('/getDaftarBuku')}}">Laporan Peminjaman</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{url('/transaksi_peminjaman')}}">Transaksi Peminjaman</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-        </div>
-    </div>
-    
-    <div class="row">
-        
-            @if (session()->has('message'))
-                <div class="col-md-12">
+<div> 
+       @if (session()->has('message'))
+                <div class="col-md-4">
                     <div class="alert alert-success">
                         {{ session('message') }} Silahkan, check pada <a href="{{url('/getDaftarBuku')}}">Daftar Buku</a>
                     </div>
                 </div>
             @endif
-    
-    
+            
+    <div class="row">
+        
+         
+        <div class="col-md-4">
+            <div class='col-md-12'>
+             <input type='text' class='form-control' wire:model='cari_buku' placeholder='cari buku' />
+             
+             <table class='table'>
+                 <thead>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Kelola</th>
+                </thead>
+                
+                <tbody>
+                    <?php
+                    $i = 1;
+                    foreach($trans as $k => $v){ 
+                    ?>
+                    <tr>
+                        <td><?=$i++;?></td>
+                        <td><?=$v['judul']?></td>
+                        <td><a class="btn btn-danger" href="javascript:void(0)" wire:click="get_id_buku({{ $v['id'] }})">Add</a> || <a class="btn btn-primary" href="javascript:void(0)">Detail</a></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                 </table>
+            </div>
+        </div>
+            
+        <div class='col-md-4' style='border-left:1px solid green;'>
+            <h5 class='text-center'>Judul Buku</h5>
+            <div class='form-group'>
+                <label>
+                    No ISBN
+                </label>
+            </div>
+            
+            <div class='form-group'>
+                 <label>
+                    Deskripsi
+                </label>
+            </div>
+            
+             <div class='form-group'>
+                 <label>
+                    Pengarang
+                </label>
+            </div>
+            
+            <div class='form-group'>
+                 <label>
+                    Foto
+                </label>
+            </div>
+            
+            <div class='form-group'>
+                 <label>
+                    Penerbit
+                </label>
+            </div>
+        </div>
+            
+        <div class="col-md-4" style='border-left:1px solid green;'>
         <form wire:submit.prevent="masukTransPinjam" class="col-md-12">
                 
                 <div class="row col-xs-12 form-group mb-2">
                     <table class="table">
                         <thead class="text-center"> 
                             <tr>
-                                <th>No Isbn</th>
                                 <th>Judul Buku</th>
                                 <th>Jumlah Pinjam</th>
                                 <th>Jumlah Stock Aktual</th>
@@ -45,17 +84,13 @@
                         </thead>
                         
                         <tbody class="text-center">
-                            <td></td>
-                            
-                            <td>
-                                <select style="width:200px;" wire:model="buku_pilih" wire:change="get_id_buku($event.target.value)" class="selectpicker" data-live-search="true">
-                                   <option value="AL">Alabama</option>
-                                   <option value="WY">Wyoming</option>
-                                </select>
-                            </td>
-                            
-                            <td></td>
-                            <td></td>
+                            <?php foreach($data_buku as $k => $v){ foreach($v as $k2 => $v2){ ?>
+                                <tr>
+                                    <td><input type="text" style="width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
+                                    <td style="width:20px;"><input class="form-control" type="text" value="{{$v2['jml_pinjam']}}"></td>
+                                    <td>{{$v2['jml_stock']}}</td>
+                                </tr>
+                            <?php }} ?>
                         </tbody>
                     </table>
                 </div>
@@ -70,11 +105,5 @@
                 </div>
         </form>
     </div>
-    
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('.selectpicker').selectpicker();
-    });
-</script>
 </div>
 
