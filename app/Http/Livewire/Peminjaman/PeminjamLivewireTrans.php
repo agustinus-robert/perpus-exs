@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Peminjaman;
 use Illuminate\Support\Facades\DB;
 use App\bukuModel as bM;
+use App\Peminjaman as Pjm;
+use App\PeminjamanDetail as PjmDtl;
 use Session;
 use Livewire\Component;
 
@@ -11,14 +13,19 @@ class PeminjamLivewireTrans extends Component
     public $buku_pilih;
     public $isbn;
     public $cari;
+    public $id_pgj;
+    public $qty_tb;
     public $detail = [];
   //  public $jml_pjm;
     public $data_buku = [];
     
+    public function mount($id){
+        $this->id_pgj = $id;
+    }
     
-    public function get_id_buku($id){
+    public function get_id_buku($id, $value_qty_ubah){
 //        $get = bM::select("*")->where('id', $id)
-//                  ->get()->toArray();
+//                  ->get()->toArray();   
         
           $get = bM::select(DB::raw('SUM(lib_jumlah_buku.jumlah_buku) as jml_buku,'
                  . 'lib_buku.judul as judul, '
@@ -43,12 +50,15 @@ class PeminjamLivewireTrans extends Component
                     $this->data_buku[$v['awal_id']][]= array('id_bk' => $v['awal_id'],
                         'judul' => $v['judul'],
                         'jml_pinjam' => 1,
-                        'jml_stock' => $v['jml_buku']);
+                        'jml_stock' => $v['jml_buku']);                  
                 } else {
                     if($this->data_buku[$v['awal_id']] == $this->data_buku[$id]){
                         $qty = 1;
                         foreach($this->data_buku[$v['awal_id']] as $k => $vss){
-                            $this->data_buku[$id][$k]['jml_pinjam']++;
+                            $this->data_buku[$id][$k]['jml_pinjam']++; 
+                            if($value_qty_ubah > 0){
+                                $this->data_buku[$id][$k]['jml_pinjam'] = $value_qty_ubah;
+                            }
                         }
                     }
                 }
@@ -83,6 +93,59 @@ class PeminjamLivewireTrans extends Component
     public function masukTransPinjam(){
         if(count($this->data_buku) < 1){
             Session::flash('message-cart-kosong', "Buku belum ada di cart transaksi");
+        } else {
+            //$link = $_SERVER["REQUEST_URI"];
+           
+//          $trans_pinjam = [];
+//          $trans_detail = [];
+//          foreach($this->data_buku as $k1 => $v1){
+//              foreach($v1 as $k2 => $v2){
+//                  
+//                  $trans_pinjam = [
+//                      'id_pengunjung' => $this->id_pgj,
+//                      'id_buku' => $v2['id_bk']
+//                  ];
+//                  
+//                  $trans_detail = [
+//                      'jumlah_pinjam' => $v2['jml_pinjam'],
+//                      'jumlah_aktual' => $v2['jml_stock']
+//                  ];
+//              }
+//          }
+            
+            dd($this->data_buku);
+                    
+            DB::beginTransaction();
+            try {
+
+                 $trans_pinjam = [
+                    'id_pengunjung' => $this->id_pgj,
+                 ];
+                 
+                 $id_trans = Pjm::create($trans_pinjam)->id;
+
+                foreach($this->data_buku as $k1 => $v1){
+                    foreach($v1 as $k2 => $v2){
+                        
+                        $trans_detail = [
+                            'jumlah_pinjam' => $v2['jml_pinjam'],
+                            'jumlah_aktual' => $v2['jml_stock']
+                        ];
+                           
+                        $trans_detail['id_trans_pinjam'] = $id_trans;
+                        PjmDtl::create($trans_detail);  
+                    }
+                }
+         
+
+               DB::commit();
+
+               Session::flash('message', "Transaksi Pinjam dimassukan, silahkan proses waktu peminjaman");
+               //return redirect('buku-add');
+            } catch (\Exception $e) {
+                DB::rollback();
+                dd($e);
+            }
         }
     }
     
