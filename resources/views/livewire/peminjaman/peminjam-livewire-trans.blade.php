@@ -37,7 +37,7 @@
                     <tr>
                         <td><?=$i++;?></td>
                         <td><?=$v['judul']?></td>
-                        <td><a class="btn btn-danger" href="javascript:void(0)" wire:click="get_id_buku({{ $v['id'] }})">Add</a> || <a class="btn btn-primary" href="javascript:void(0)">Detail</a></td>
+                        <td><a class="btn btn-danger" href="javascript:void(0)" wire:click="get_id_buku({{ $v['id'] }})">Add</a> || <a class="btn btn-primary" href="javascript:void(0)" wire:click="get_detail_buku({{ $v['id'] }})">Detail</a></td>
                     </tr>
                     <?php } ?>
                     </tbody>
@@ -45,37 +45,56 @@
             </div>
         </div>
             
-        <div class='col-md-4' style='border-left:1px solid green;'>
-            <h5 class='text-center'>Judul Buku</h5>
-            <div class='form-group'>
+        <div class='col-md-4 text-center' style='border-left:1px solid green;'>
+            
+            <h5 class='text-center'></h5>
+            <div class='form-group mb-3'>
                 <label>
-                    No ISBN
+                    <b>No ISBN</b>
+                    <?php if(!empty($detail[0]['judul'])){ ?>
+                    <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['isbn']}}" disabled>
+                    <?php } else { ?>
+                    <input type="text" style="border:1px window;" class="form-control" value="" disabled>
+                    <?php } ?>
                 </label>
             </div>
             
-            <div class='form-group'>
+             <div class='form-group mb-3'>
                  <label>
-                    Deskripsi
+                     <b>Pengarang</b>
+                     <?php if(!empty($detail[0]['judul'])){ ?>
+                     <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['judul']}}" disabled>
+                      <?php } else { ?>
+                     <input type="text" style="border:1px window" class="form-control" value="" disabled>
+                      <?php } ?>
                 </label>
             </div>
             
-             <div class='form-group'>
+            <div class='form-group mb-3'>
                  <label>
-                    Pengarang
+                     <b>Foto</b>
+                     <div class="shadow p-3 mb-5" style="width:250px;height:250px;border:1px solid gray;">
+                         <?php if(!empty($detail[0]['judul'])){ ?>
+                        <img style="width:160px;height:200px;" src='{{url('public/image/'.$detail[0]['foto'])}}'></img>
+                         <?php } else { ?>
+                         <img class='img-thumbnail' src=''></img>
+                        <?php } ?>
+                     </div>
                 </label>
             </div>
             
-            <div class='form-group'>
+            <div class='form-group mb-3'>
                  <label>
-                    Foto
+                     <b>Penerbit</b>
+                     <?php if(!empty($detail[0]['penerbit'])){ ?>
+                     <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['penerbit']}}" disabled>
+                     <?php } else { ?>
+                     <input type="text" style="border:1px window" class="form-control" value="" disabled>
+                     <?php } ?>
                 </label>
             </div>
             
-            <div class='form-group'>
-                 <label>
-                    Penerbit
-                </label>
-            </div>
+           
         </div>
             
         <div class="col-md-4" style='border-left:1px solid green;'>
