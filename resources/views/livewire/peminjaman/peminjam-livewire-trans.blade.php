@@ -125,7 +125,6 @@
                         
                         <tbody class="text-center">
                             <?php 
-                            print_r($data_buku);
                             foreach($data_buku as $k => $v){ foreach($v as $k2 => $v2){ ?>
                                 <tr>
                                     <td><input class="form-control" type="text" style="background-color:white;width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
