@@ -40,7 +40,7 @@ class PeminjamLivewireTrans extends Component
         foreach($get as $k => $v){      
             
             if(empty($this->data_buku[$id])){
-                $this->data_buku[$v['awal_id']][]= array('id' => $v['id'],
+                $this->data_buku[$v['awal_id']][]= array('id_bk' => $v['awal_id'],
                     'judul' => $v['judul'],
                     'jml_pinjam' => 1,
                     'jml_stock' => $v['jml_buku']);
@@ -53,6 +53,10 @@ class PeminjamLivewireTrans extends Component
                 }
             }
         }
+    }
+    
+    public function hapus_id_buku($id){
+        unset($this->data_buku[$id]);
     }
     
     public function cari_click(){

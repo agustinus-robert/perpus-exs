@@ -80,6 +80,7 @@
                                 <th>Judul Buku</th>
                                 <th>Jumlah Pinjam</th>
                                 <th>Jumlah Stock Aktual</th>
+                                <th></th>
                             </tr>
                         </thead>
                         
@@ -89,6 +90,7 @@
                                     <td><input type="text" style="width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
                                     <td style="width:20px;"><input class="form-control" type="text" value="{{$v2['jml_pinjam']}}"></td>
                                     <td>{{$v2['jml_stock']}}</td>
+                                    <td><a href="javascript:void(0)" wire:click="hapus_id_buku({{ $v2['id_bk'] }})">x</a></td>
                                 </tr>
                             <?php }} ?>
                         </tbody>
