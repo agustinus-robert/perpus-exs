@@ -15,9 +15,6 @@ class PeminjamLivewireTrans extends Component
   //  public $jml_pjm;
     public $data_buku = [];
     
-    public function masukTransPinjam(){
-        dd($this->buku_pilih);
-    }
     
     public function get_id_buku($id){
 //        $get = bM::select("*")->where('id', $id)
@@ -81,6 +78,12 @@ class PeminjamLivewireTrans extends Component
               ->get()->toArray();
         
         
+    }
+    
+    public function masukTransPinjam(){
+        if(count($this->data_buku) < 1){
+            Session::flash('message-cart-kosong', "Buku belum ada di cart transaksi");
+        }
     }
     
     public function cari_click(){

@@ -15,6 +15,14 @@
                 </div>
             @endif
             
+            @if (session()->has('message-cart-kosong'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('message-cart-kosong') }}
+                    </div>
+                </div>
+            @endif
+            
     <div class="row">
         
          
