@@ -7,6 +7,14 @@
                 </div>
             @endif
             
+            @if (session()->has('message-habis'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('message') }} Silahkan, tambah stock di <a href="{{url('/qty_buku')}}">Setting Qty Buku</a>
+                    </div>
+                </div>
+            @endif
+            
     <div class="row">
         
          

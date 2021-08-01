@@ -38,17 +38,20 @@ class PeminjamLivewireTrans extends Component
               ->get()->toArray();
          
         foreach($get as $k => $v){      
-            
-            if(empty($this->data_buku[$id])){
-                $this->data_buku[$v['awal_id']][]= array('id_bk' => $v['awal_id'],
-                    'judul' => $v['judul'],
-                    'jml_pinjam' => 1,
-                    'jml_stock' => $v['jml_buku']);
+            if($v['jml_buku'] == 0 || $v['jml_buku'] < 1){
+               Session::flash('message-habis', "Buku berjudul: ".$v['judul']." stock telah habis");
             } else {
-                if($this->data_buku[$v['awal_id']] == $this->data_buku[$id]){
-                    $qty = 1;
-                    foreach($this->data_buku[$v['awal_id']] as $k => $vss){
-                        $this->data_buku[$id][$k]['jml_pinjam']++;
+                 if(empty($this->data_buku[$id])){
+                    $this->data_buku[$v['awal_id']][]= array('id_bk' => $v['awal_id'],
+                        'judul' => $v['judul'],
+                        'jml_pinjam' => 1,
+                        'jml_stock' => $v['jml_buku']);
+                } else {
+                    if($this->data_buku[$v['awal_id']] == $this->data_buku[$id]){
+                        $qty = 1;
+                        foreach($this->data_buku[$v['awal_id']] as $k => $vss){
+                            $this->data_buku[$id][$k]['jml_pinjam']++;
+                        }
                     }
                 }
             }
