@@ -88,7 +88,7 @@
                                 <th>Judul Buku</th>
                                 <th>Jumlah Pinjam</th>
                                 <th>Jumlah Stock Aktual</th>
-                                <th></th>
+                                <th><i class="fa fa-trash" aria-hidden="true" style="font-size:30px;"></i></th>
                             </tr>
                         </thead>
                         
