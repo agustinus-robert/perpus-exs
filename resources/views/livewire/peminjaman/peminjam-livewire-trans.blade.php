@@ -45,13 +45,18 @@
             </div>
         </div>
             
-        <div class='col-md-4 text-center' style='border-left:1px solid green;'>
-            
+        <div class='col-md-4 text-center'>
+            <?php if(!empty($detail[0]['isbn'])){ ?>
+            <h5 class='text-center mt-1 mb-2 p-1'>{{$detail[0]['judul']}}</h5>
+            <hr>
+    
+            <?php } else { ?>
             <h5 class='text-center'></h5>
-            <div class='form-group mb-3'>
+            <?php } ?>
+            <div class='form-group mb-2'>
                 <label>
                     <b>No ISBN</b>
-                    <?php if(!empty($detail[0]['judul'])){ ?>
+                    <?php if(!empty($detail[0]['isbn'])){ ?>
                     <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['isbn']}}" disabled>
                     <?php } else { ?>
                     <input type="text" style="border:1px window;" class="form-control" value="" disabled>
@@ -59,18 +64,18 @@
                 </label>
             </div>
             
-             <div class='form-group mb-3'>
+             <div class='form-group mb-2'>
                  <label>
                      <b>Pengarang</b>
-                     <?php if(!empty($detail[0]['judul'])){ ?>
-                     <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['judul']}}" disabled>
+                     <?php if(!empty($detail[0]['pengarang'])){ ?>
+                     <input type="text" style="border:1px window;" class="form-control" value="{{$detail[0]['pengarang']}}" disabled>
                       <?php } else { ?>
                      <input type="text" style="border:1px window" class="form-control" value="" disabled>
                       <?php } ?>
                 </label>
             </div>
             
-            <div class='form-group mb-3'>
+            <div class='form-group mb-2'>
                  <label>
                      <b>Foto</b>
                      <div class="shadow p-3 mb-5" style="width:250px;height:250px;border:1px solid gray;">
@@ -83,7 +88,7 @@
                 </label>
             </div>
             
-            <div class='form-group mb-3'>
+            <div class='form-group mb-2'>
                  <label>
                      <b>Penerbit</b>
                      <?php if(!empty($detail[0]['penerbit'])){ ?>
@@ -97,7 +102,7 @@
            
         </div>
             
-        <div class="col-md-4" style='border-left:1px solid green;'>
+        <div class="col-md-4">
         <form wire:submit.prevent="masukTransPinjam" class="col-md-12">
                 
                 <div class="row col-xs-12 form-group mb-2">
@@ -114,10 +119,10 @@
                         <tbody class="text-center">
                             <?php foreach($data_buku as $k => $v){ foreach($v as $k2 => $v2){ ?>
                                 <tr>
-                                    <td><input type="text" style="width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
+                                    <td><input class="form-control" type="text" style="background-color:white;width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
                                     <td style="width:20px;"><input class="form-control" type="text" value="{{$v2['jml_pinjam']}}"></td>
-                                    <td>{{$v2['jml_stock']}}</td>
-                                    <td><a href="javascript:void(0)" wire:click="hapus_id_buku({{ $v2['id_bk'] }})">x</a></td>
+                                    <td><input class="form-control" type="text" style="background-color:white;width:60px; border:none;" disabled value="{{$v2['jml_stock']}}"></td>
+                                    <td><a class="btn btn-secondary" href="javascript:void(0)" wire:click="hapus_id_buku({{ $v2['id_bk'] }})">x</a></td>
                                 </tr>
                             <?php }} ?>
                         </tbody>
