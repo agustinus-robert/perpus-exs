@@ -23,7 +23,7 @@ class PeminjamLivewireTrans extends Component
         $this->id_pgj = $id;
     }
     
-    public function get_id_buku($id, $value_qty_ubah){
+    public function get_id_buku($id){
 //        $get = bM::select("*")->where('id', $id)
 //                  ->get()->toArray();   
         
@@ -52,18 +52,22 @@ class PeminjamLivewireTrans extends Component
                         'jml_pinjam' => 1,
                         'jml_stock' => $v['jml_buku']);                  
                 } else {
-                    if($this->data_buku[$v['awal_id']] == $this->data_buku[$id]){
-                        $qty = 1;
-                        foreach($this->data_buku[$v['awal_id']] as $k => $vss){
-                            $this->data_buku[$id][$k]['jml_pinjam']++; 
-                            if($value_qty_ubah > 0){
-                                $this->data_buku[$id][$k]['jml_pinjam'] = $value_qty_ubah;
-                            }
-                        }
+                 
+                    if($this->data_buku[$v['awal_id']] == $this->data_buku[$id]){                       
+                        foreach($this->data_buku[$v['awal_id']] as $k => $vss){  
+                            $this->data_buku[$id][$k]['jml_pinjam']++;
+                        }      
                     }
                 }
             }
         }
+    }
+    
+    public function get_id_buku_change($id, $ubah){
+                                 
+        foreach($this->data_buku[$id] as $k => $vss){  
+            $this->data_buku[$id][$k]['jml_pinjam'] = $ubah;
+        }        
     }
     
     public function hapus_id_buku($id){

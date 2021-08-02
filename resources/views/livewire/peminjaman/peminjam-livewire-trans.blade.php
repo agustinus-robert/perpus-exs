@@ -40,12 +40,16 @@
                 <tbody>
                     <?php
                     $i = 1;
+                    
                     foreach($trans as $k => $v){ 
+                        
                     ?>
                     <tr>
                         <td><?=$i++;?></td>
                         <td><?=$v['judul']?></td>
-                        <td><a class="btn btn-danger" href="javascript:void(0)" wire:click="get_id_buku({{ $v['id'] }}, 0)">Add</a> || <a class="btn btn-primary" href="javascript:void(0)" wire:click="get_detail_buku({{ $v['id'] }})">Detail</a></td>
+                      
+                        <td><a class="btn btn-danger" href="javascript:void(0)" wire:click="get_id_buku({{ $v['id']}})">Add</a> || <a class="btn btn-primary" href="javascript:void(0)" wire:click="get_detail_buku({{ $v['id'] }})">Detail</a></td>
+                        
                     </tr>
                     <?php } ?>
                     </tbody>
@@ -128,7 +132,7 @@
                             foreach($data_buku as $k => $v){ foreach($v as $k2 => $v2){ ?>
                                 <tr>
                                     <td><input class="form-control" type="text" style="background-color:white;width:60px; border:none;" disabled value="{{$v2['judul']}}"></td>
-                                    <td style="width:20px;"><input class="form-control" type="text" wire:change="get_id_buku({{$v2['id_bk']}}, $event.target.value)" value="{{$v2['jml_pinjam']}}"></td>
+                                    <td style="width:20px;"><input class="form-control" type="text" wire:change="get_id_buku_change({{$v2['id_bk']}}, $event.target.value)" value="{{$v2['jml_pinjam']}}"></td>
                                     <td><input class="form-control" type="text" style="background-color:white;width:60px; border:none;" disabled value="{{$v2['jml_stock']}}"></td>
                                     <td><a class="btn btn-secondary" href="javascript:void(0)" wire:click="hapus_id_buku({{ $v2['id_bk'] }})">x</a></td>
                                 </tr>
