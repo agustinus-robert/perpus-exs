@@ -30,6 +30,7 @@ Route::get('/proses_peminjaman/{id}','peminjaman\PinjamController@proses_pending
 
 Route::get('/index_pengembalian','Pengembalian\PengembalianController@index');
 Route::get('/daftar_trans_kembali','Pengembalian\PengembalianController@trans_pengembalian')->name('dp');
+Route::get('/proses_kembali/{id}','Pengembalian\PengembalianController@proses_pengembalian');
 
 
 Route::get('/buku-add','buku\BukuController@tambah');
