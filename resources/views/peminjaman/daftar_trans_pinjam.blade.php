@@ -36,8 +36,9 @@
                     <tr>
                         <th width="50">No</th>
                         <th>Nama</th>
-                        <th>Nomor Kartu</th>
-                        <th>Transaksi Pinjam</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,13 +55,14 @@
 
         serverSide: true,
 
-        ajax: "{{ route('tb') }}",
+        ajax: "{{ route('tp') }}",
 
         columns: [
 
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'nama', name: 'nama'},
-            {data: 'no_kartu', name: 'no_kartu'},
+            {data: 'tgl_pjm', name: 'tgl_pjm'},
+            {data: 'tgl_kbl', name: 'tgl_kbl'},
             {data: 'action', name: 'action'},
         ]
     });

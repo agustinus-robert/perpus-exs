@@ -25,7 +25,7 @@ Route::get('/getDaftarPengunjung','pengunjung\PengujungController@getDaftarPengu
 Route::get('/index_peminjaman','peminjaman\PinjamController@index');
 Route::get('/transaksi_peminjaman','peminjaman\PinjamController@transaksi_pemijaman')->name('tb');
 Route::get('/get_pinjam_pengunjung/{id}','peminjaman\PinjamController@get_pinjam_pengunjung');
-
+Route::get('/daftar_trans_pinjam','peminjaman\PinjamController@get_daftar_pending')->name('tp');
 Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
