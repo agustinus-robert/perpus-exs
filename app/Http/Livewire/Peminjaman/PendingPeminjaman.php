@@ -29,7 +29,8 @@ class PendingPeminjaman extends Component
               ->leftJoin('lib_pengunjung', 'lib_peminjam.id_pengunjung', '=', 'lib_pengunjung.id')
               ->leftJoin('lib_peminjaman_detail','lib_peminjam.id','=','lib_peminjaman_detail.id_trans_pinjam')
               ->leftJoin('lib_buku','lib_peminjaman_detail.id_buku','=','lib_buku.id')
-              ->groupBy('lib_peminjam.id')
+             // ->groupBy('lib_peminjam.id')
+              ->where('lib_peminjam.id',$this->ids)
               ->get()->toArray();
          
         return view('livewire.peminjaman.pending-peminjaman', $data);
