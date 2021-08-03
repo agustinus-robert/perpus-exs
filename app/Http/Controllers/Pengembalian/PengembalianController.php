@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Pengembalian;
 
+use DataTables;
+use App\Peminjaman as Pjm;
+use App\pengunjungPerpus as Pp;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -19,7 +23,8 @@ class PengembalianController extends Controller
                     .'lib_peminjam.tanggal_pinjam as tgl_pjm, '
                     .'lib_peminjam.tanggal_kembali as tgl_kbl, '
                     .'lib_peminjam.id as id, '
-                    .'lib_peminjam.status as status'
+                    .'lib_peminjam.status as status, '
+                    .'DATEDIFF(lib_peminjam.tanggal_kembali, NOW()) as selisih'
                 ))
               ->leftJoin('lib_pengunjung', 'lib_peminjam.id_pengunjung', '=', 'lib_pengunjung.id')
               ->where('lib_peminjam.status', 1)
@@ -29,8 +34,17 @@ class PengembalianController extends Controller
 
             return Datatables::of($data)
                     ->addIndexColumn()
+                    ->editColumn('selisih', function($row) {
+                        if($row->selisih < 0){
+                            return ($row->selisih * -1)." (Keterlambatan)";
+                        } else if($row->selisih == 0) {
+                            return $row->selisih." (Waktu Terakhir pengembalian)";
+                        } else {
+                            return $row->selisih;
+                        }
+                    })
                     ->addColumn('action', function($row){
-                        if($row->status == 0){
+                        if($row->status == 1){
                             $btn = '<a href="'.url('proses_kembali/'.$row->id).'" class="edit btn btn-danger btn-sm">Proses Pengembalian</a>';
                         } 
                         

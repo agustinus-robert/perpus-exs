@@ -43,6 +43,7 @@
                         <th>Nama</th>
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
+                        <th>Sisa Hari</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -68,6 +69,7 @@
             {data: 'nama', name: 'nama'},
             {data: 'tgl_pjm', name: 'tgl_pjm'},
             {data: 'tgl_kbl', name: 'tgl_kbl'},
+            {data: 'selisih', name: 'selisih'},
             {data: 'action', name: 'action'},
         ]
     });
