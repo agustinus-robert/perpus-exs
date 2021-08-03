@@ -1,6 +1,6 @@
 <div> 
        @if (session()->has('message'))
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="alert alert-success">
                         {{ session('message') }} Silahkan, check pada <a href="{{url('/getDaftarBuku')}}">Daftar Buku</a>
                     </div>
