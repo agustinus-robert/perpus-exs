@@ -1,4 +1,4 @@
-Aplikasi versi 1 perpustakaan
+Aplikasi versi 1 perpustakaan (On development)
 
 Framework: Laravel
 
