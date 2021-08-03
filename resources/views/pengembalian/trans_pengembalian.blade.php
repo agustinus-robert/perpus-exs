@@ -20,7 +20,7 @@
                       <a class="nav-link" href="{{url('/getDaftarBuku')}}">Laporan Pengembalian</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{url('/transaksi_peminjaman')}}">Transaksi Pengembalian</a>
+                      <a class="nav-link" href="{{url('/daftar_trans_kembali')}}">Transaksi Pengembalian</a>
                     </li>
                   </ul>
                 </div>
