@@ -117,7 +117,6 @@ class PeminjamLivewireTrans extends Component
 //              }
 //          }
             
-            dd($this->data_buku);
                     
             DB::beginTransaction();
             try {
