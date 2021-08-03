@@ -39,7 +39,8 @@ class PinjamController extends Controller
             $data = Pjm::select(DB::raw('lib_pengunjung.nama as nama,'
                     .'lib_peminjam.tanggal_pinjam as tgl_pjm, '
                     .'lib_peminjam.tanggal_kembali as tgl_kbl, '
-                    .'lib_peminjam.id as id'
+                    .'lib_peminjam.id as id, '
+                    .'lib_peminjam.status as status'
                 ))
               ->leftJoin('lib_pengunjung', 'lib_peminjam.id_pengunjung', '=', 'lib_pengunjung.id')
               ->groupBy('lib_peminjam.id')
@@ -49,7 +50,12 @@ class PinjamController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('proses_peminjaman/'.$row->id).'" class="edit btn btn-primary btn-sm">Proses Peminjaman</a>';
+                        if($row->status == 0){
+                            $btn = '<a href="'.url('proses_peminjaman/'.$row->id).'" class="edit btn btn-primary btn-sm">Proses Peminjaman</a>';
+                        } else {
+                            $btn = 'Transaksi sudah berhasil';   
+                        }
+                        
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
