@@ -56,7 +56,7 @@ class PengembalianController extends Controller
         return View('pengembalian.trans_pengembalian');
     }
     
-     public function proses_pengembalian_peminjaman($id){
+     public function proses_pengembalian($id){
         $data['id'] = $id;
         return View('pengembalian.proses_pengembalian_peminjaman', $data);
     }
