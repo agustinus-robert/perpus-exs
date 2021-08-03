@@ -53,6 +53,7 @@ class PendingPeminjaman extends Component
 
            
            Session::flash('message', "Proses Peminjaman Berhasil");
+           return redirect('daftar_trans_pinjam');
         } catch (\Exception $e) {
             DB::rollback();
             dd($e);

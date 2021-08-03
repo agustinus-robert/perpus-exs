@@ -1,6 +1,14 @@
 @extends('header')
 
 @section('konten')
+ @if (session()->has('message'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} 
+                    </div>
+                </div>
+            @endif
+            
 <div class='row p-4'>
         <h2 class='text-center'>Kelola Peminjaman Buku</h2>
         <hr>
