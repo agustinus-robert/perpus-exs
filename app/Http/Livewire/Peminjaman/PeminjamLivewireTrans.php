@@ -131,6 +131,7 @@ class PeminjamLivewireTrans extends Component
                     foreach($v1 as $k2 => $v2){
                         
                         $trans_detail = [
+                            'id_buku' => $v2['id_bk'],
                             'jumlah_pinjam' => $v2['jml_pinjam'],
                             'jumlah_aktual' => $v2['jml_stock']
                         ];
