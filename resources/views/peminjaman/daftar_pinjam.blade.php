@@ -12,6 +12,9 @@
                       <a class="nav-link" href="{{url('/getDaftarBuku')}}">Laporan Peminjaman</a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link" href="{{url('/pending_peminjaman')}}">Pending Peminjaman</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link" href="{{url('/transaksi_peminjaman')}}">Transaksi Peminjaman</a>
                     </li>
                   </ul>
