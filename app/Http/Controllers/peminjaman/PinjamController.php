@@ -49,13 +49,18 @@ class PinjamController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_trans_pjm/'.$row->id).'" class="edit btn btn-primary btn-sm">Proses Peminjaman</a>';
+                        $btn = '<a href="'.url('proses_peminjaman/'.$row->id).'" class="edit btn btn-primary btn-sm">Proses Peminjaman</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
         }
         
         return View('peminjaman.daftar_trans_pinjam');
+    }
+    
+    public function proses_pending_peminjaman($id){
+        $data['id'] = $id;
+        return View('peminjaman.daftar_proses_peminjaman', $data);
     }
     
     public function get_pinjam_pengunjung($id){
