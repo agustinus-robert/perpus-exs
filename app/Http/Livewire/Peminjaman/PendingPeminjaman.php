@@ -4,12 +4,18 @@ namespace App\Http\Livewire\Peminjaman;
 use App\Peminjaman as Pjm;
 use App\pengunjungPerpus as Pp;
 use Illuminate\Support\Facades\DB;
-
+use Session;
 use Livewire\Component;
 
 class PendingPeminjaman extends Component
 {
-    
+    public $waktu_awal;
+    public $waktu_akhir;
+    public $ids;
+   
+    public function mount($id){
+        $this->ids = $id;
+    }
     public function render()
     {
          $data['daftar_proses'] = Pjm::select(DB::raw('lib_pengunjung.nama as nama,'
@@ -27,5 +33,28 @@ class PendingPeminjaman extends Component
               ->get()->toArray();
          
         return view('livewire.peminjaman.pending-peminjaman', $data);
+    }
+    
+    public function masukProsesTransaksi(){
+        $arr_edit = [
+          'tanggal_pinjam' => $this->waktu_awal,
+          'tanggal_kembali' => $this->waktu_akhir,
+          'status' => 1
+        ];
+        
+        DB::beginTransaction();
+        try {
+          
+           Pjm::where('id', $this->ids)
+                    ->update($arr_edit);
+        
+           DB::commit();
+
+           
+           Session::flash('message', "Proses Peminjaman Berhasil");
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e);
+        }
     }
 }
