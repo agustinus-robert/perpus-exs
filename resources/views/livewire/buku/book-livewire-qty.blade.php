@@ -35,7 +35,7 @@
             
      <div class='col-md-4 form-group mx-auto mb-4'>
         <div class="col text-center">
-            <select class="form-select" wire:change="getbook($event.target.value)">
+            <select class="form-select" id="select-buku">
                 <option value="none">None</option>
                 <?php foreach($semua_buku as $k => $v){  ?>
                 <option value="{{$v['id']}}">{{$v['judul']}}</option>
@@ -86,4 +86,28 @@
                 </div>
         </form>
     </div>
+    
+    <script>
+    $(document).ready(function() {
+//		$('.select-buku').select2();
+//                
+//                $('.select-buku').on('change', function (e) {
+//	
+//                        @this.emit('getbook', e.target.value)
+//		});
+                
+            window.initSelectCompanyDrop=()=>{
+                $('#select-buku').select2({
+                    placeholder: 'Select a Company',
+                    allowClear: true});
+            }
+            initSelectCompanyDrop();
+            $('#select-buku').on('change', function (e) {
+                livewire.emit('getbook', e.target.value)
+            });
+            window.livewire.on('select2',()=>{
+                initSelectCompanyDrop();
+            });
+    });
+    </script>
 </div>

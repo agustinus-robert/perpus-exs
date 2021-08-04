@@ -14,6 +14,8 @@ class BookLivewireQty extends Component
     public $id_buku;
     public $pilih_sup;
     public $nama_buku;
+    public $pilih_buku;
+    
     
     public function masukBukuQty(){
          $arr_masuk = [
@@ -44,6 +46,7 @@ class BookLivewireQty extends Component
     }
     
     public function getbook($id){
+        dd($id);
          $gets = bm::select(DB::raw('lib_jumlah_buku.jumlah_buku as jml_buku,'
                  . 'lib_buku.judul as judul, '
                  . 'lib_buku.id as id_b'))
