@@ -39,3 +39,5 @@ Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
 
 Route::get('/get_edit_buku/{id}','buku\BukuController@edit');
 Route::get('/pengunjung');
+
+Route::get('/denda-index','denda\DendaController@index');
