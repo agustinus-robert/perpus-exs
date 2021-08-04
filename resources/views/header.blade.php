@@ -47,7 +47,7 @@
                 <a class="nav-link" href="{{url('index_pengembalian')}}" tabindex="-1">Pengembalian</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1">Denda</a>
+                <a class="nav-link" href="{{url('/denda-index')}}" tabindex="-1">Denda</a>
               </li>
             </ul>
             
