@@ -41,3 +41,5 @@ Route::get('/get_edit_buku/{id}','buku\BukuController@edit');
 Route::get('/pengunjung');
 
 Route::get('/denda-index','denda\DendaController@index');
+Route::get('/transaksi-denda','denda\DendaController@daftar_trans_denda')->name('td');
+Route::get('/proses_denda/{id}','denda\DendaController@daftar_trans_denda');
