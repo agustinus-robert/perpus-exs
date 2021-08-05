@@ -44,4 +44,9 @@ class DendaController extends Controller
         
         return View('denda.daftar_denda');
     }
+    
+    public function denda_proses($id){
+        $data['id'] = $id;
+        return View('denda.proses_denda', $data);
+    }
 }
