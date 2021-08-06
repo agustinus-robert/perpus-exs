@@ -50,7 +50,7 @@ class PengembalianLivewire extends Component
            DB::commit();
 
            
-           Session::flash('message-kembali', "Proses Pengembalian Berhasil");
+           Session::flash('message', "Proses Pengembalian Berhasil");
            return redirect('daftar_trans_kembali');
         } catch (\Exception $e) {
             DB::rollback();
