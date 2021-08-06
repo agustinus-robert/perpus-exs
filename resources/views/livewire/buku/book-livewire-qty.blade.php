@@ -35,11 +35,15 @@
             
      <div class='col-md-4 form-group mx-auto mb-4'>
         <div class="col text-center">
-            <select class="form-select" id="select-buku">
+            <select class="form-select" wire:model="selected" id="select-buku">
                 <option value="none">None</option>
-                <?php foreach($semua_buku as $k => $v){  ?>
-                <option value="{{$v['id']}}">{{$v['judul']}}</option>
-                <?php } ?>
+                <?php foreach($semua_buku as $k => $v){  
+                    if($selected == $v['id']){
+                    ?>
+                    <option value="{{$v['id']}}" selected>{{$v['judul']}}</option>
+                    <?php } else { ?>
+                 <option value="{{$v['id']}}">{{$v['judul']}}</option>
+                <?php }} ?>
             </select>
         </div>
      </div>

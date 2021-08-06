@@ -15,6 +15,7 @@ class BookLivewireQty extends Component
     public $pilih_sup;
     public $nama_buku;
     public $pilih_buku;
+    public $selected;
     
     protected $listeners = [
         'getbook',
@@ -64,8 +65,9 @@ class BookLivewireQty extends Component
            foreach($gets as $k => $v){
               $this->id_buku = $v['id_b'];
               $this->nama_buku = $v['judul'];
-             $this->emit('select_buku_selected', $this->id_buku);
-              
+              $this->selected = $v['id_b'];
+             
+           
 //              if(!empty($v['jml_buku'])){
 //                $this->qty = $v['jml_buku'];
 //              } else {
