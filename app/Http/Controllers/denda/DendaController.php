@@ -24,7 +24,8 @@ class DendaController extends Controller
                     .'lib_peminjam.tanggal_pinjam as tgl_pjm, '
                     .'lib_peminjam.tanggal_kembali as tgl_kbl, '
                     .'lib_peminjam.id as id, '
-                    .'lib_peminjam.status as status'
+                    .'lib_peminjam.status as status, '
+                    .'lib_peminjam.status_denda as stt_denda'
                 ))
               ->leftJoin('lib_pengunjung', 'lib_peminjam.id_pengunjung', '=', 'lib_pengunjung.id')
                ->where([[DB::raw('DATE(lib_peminjam.tgl_pengembalian)'),'>',DB::raw('DATE(lib_peminjam.tanggal_kembali)')], ['lib_peminjam.pengembalian','=','2']])
@@ -34,9 +35,11 @@ class DendaController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-               
-                        $btn = '<a href="'.url('proses_denda/'.$row->id).'" class="edit btn btn-warning btn-sm">Proses Denda</a>';
-                        
+                        if($row->stt_denda == 0 || $row->stt_denda == null){
+                            $btn = '<a href="'.url('proses_denda/'.$row->id).'" class="edit btn btn-warning btn-sm">Proses Denda</a>';
+                        } else {
+                            $btn = "Proses denda berhasil di transaksi ini";
+                        }
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
