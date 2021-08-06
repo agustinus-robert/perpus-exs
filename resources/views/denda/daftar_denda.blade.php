@@ -20,10 +20,10 @@
         </div>
     </div>
     
-        @if (session()->has('message-hapus'))
+        @if (session()->has('message'))
                 <div class="col-md-12">
                     <div class="alert alert-success">
-                        {{ session('message') }} Buku berhasil dihapus
+                        {{ session('message') }}
                     </div>
                 </div>
             @endif
