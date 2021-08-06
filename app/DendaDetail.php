@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DendaModel extends Model
+class DendaDetail extends Model
 {
     //
-    protected $table  = "lib_denda";
     public $timestamps = false;
+    protected $table = "lib_denda_detail";
     protected $guarded = [];
 }

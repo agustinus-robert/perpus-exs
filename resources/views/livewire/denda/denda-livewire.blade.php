@@ -18,17 +18,18 @@
         </div>
     </div>
     
-    <div class="row">    
-        <form wire:submit.prevent="masukProsesTransaksi">
-            <div class="col-md-8 p-3 mx-auto">
-                <table class="table">
-                    <tr>
-                        <td><label>Tanggal Awal: <input type="date" wire:model="waktu_awal" /></label></td>
-                        <td><label>Tanggal Akhir: <input type="date" wire:model="waktu_akhir" /></label></td>
-                    </tr>
-                </table>
-            </div>
+    
+        @if (session()->has('message'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                </div>
+            @endif
             
+    <div class="row">    
+        <form wire:submit.prevent="masukProsesDenda">
+           
             <div class="col-md-12">
                 <table class="table text-center">
                     <thead>
@@ -47,8 +48,9 @@
                         <td>{{$i++}}</td>
                         <td>{{$v['nama_buku']}}</td>
                         <td>{{$v['jml_buku']}}</td>
-                        <td><select wire:model="">
-                                <option value="-1">Pilih Denda</option>
+                        <input type="hidden" wire:model="denda.{{$k}}.buku" />
+                        <td><select wire:model="denda.{{$k}}.tipe">
+                                <option value="0">Pilih Denda</option>
                                 <option value="1">Keterlambatan</option>
                                 <option value="2">Buku Hilang/Rusak</option>
                             </select>
