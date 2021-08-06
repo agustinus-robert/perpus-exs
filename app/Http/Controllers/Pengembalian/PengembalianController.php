@@ -24,6 +24,7 @@ class PengembalianController extends Controller
                     .'lib_peminjam.tanggal_kembali as tgl_kbl, '
                     .'lib_peminjam.id as id, '
                     .'lib_peminjam.status as status, '
+                    .'lib_peminjam.pengembalian as pegembalian, '
                     .'DATEDIFF(lib_peminjam.tanggal_kembali, NOW()) as selisih'
                 ))
               ->leftJoin('lib_pengunjung', 'lib_peminjam.id_pengunjung', '=', 'lib_pengunjung.id')
@@ -44,9 +45,11 @@ class PengembalianController extends Controller
                         }
                     })
                     ->addColumn('action', function($row){
-                        if($row->status == 1){
+                        if($row->pegembalian == 0 || null){
                             $btn = '<a href="'.url('proses_kembali/'.$row->id).'" class="edit btn btn-danger btn-sm">Proses Pengembalian</a>';
-                        } 
+                        } else {
+                            $btn = "Pengembalian sudah berhasil";
+                        }
                         
                         return $btn;
                     })->rawColumns(['action'])->make(true);
