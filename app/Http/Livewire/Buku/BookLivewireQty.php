@@ -16,6 +16,10 @@ class BookLivewireQty extends Component
     public $nama_buku;
     public $pilih_buku;
     
+    protected $listeners = [
+        'getbook',
+    ];
+    
     
     public function masukBukuQty(){
          $arr_masuk = [
@@ -46,7 +50,7 @@ class BookLivewireQty extends Component
     }
     
     public function getbook($id){
-        dd($id);
+        
          $gets = bm::select(DB::raw('lib_jumlah_buku.jumlah_buku as jml_buku,'
                  . 'lib_buku.judul as judul, '
                  . 'lib_buku.id as id_b'))
@@ -60,6 +64,8 @@ class BookLivewireQty extends Component
            foreach($gets as $k => $v){
               $this->id_buku = $v['id_b'];
               $this->nama_buku = $v['judul'];
+             $this->emit('select_buku_selected', $this->id_buku);
+              
 //              if(!empty($v['jml_buku'])){
 //                $this->qty = $v['jml_buku'];
 //              } else {
@@ -77,6 +83,8 @@ class BookLivewireQty extends Component
     {
         $data['semua_buku'] = bm::select('*')->get()->toArray();
         $data['supplier_buku'] = sB::select('*')->get()->toArray();
+         $this->emit('select2');
+         
         return view('livewire.buku.book-livewire-qty', $data);
     }
 }

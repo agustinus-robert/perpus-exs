@@ -89,17 +89,9 @@
     
     <script>
     $(document).ready(function() {
-//		$('.select-buku').select2();
-//                
-//                $('.select-buku').on('change', function (e) {
-//	
-//                        @this.emit('getbook', e.target.value)
-//		});
-                
             window.initSelectCompanyDrop=()=>{
                 $('#select-buku').select2({
-                    placeholder: 'Select a Company',
-                    allowClear: true});
+                    placeholder: 'Pilih buku'});
             }
             initSelectCompanyDrop();
             $('#select-buku').on('change', function (e) {
