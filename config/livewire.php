@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/perpus_exs',
+    'asset_url' => 'http://localhost/perpus-exs',
 
     /*
     |--------------------------------------------------------------------------
