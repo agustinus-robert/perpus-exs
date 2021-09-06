@@ -63,15 +63,6 @@
             </div>
             
         </div>
-        <!-- Copyright -->
-       
- <!--       <footer class='footer fixed-bottom'>
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyleft:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">App v1</a>
-  </div>
- 
-</footer> -->
         @livewireScripts
     </body>
 </html>
