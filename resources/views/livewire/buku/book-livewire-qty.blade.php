@@ -13,7 +13,16 @@
                       <a class="nav-link" href="{{url('/buku-add')}}">Tambah Buku</a>
                     </li>
                      <li class="nav-item">
-                      <a class="nav-link" href="{{url('/qty_buku')}}">Setting Buku</a>
+                     <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Setting Buku
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Daftar Qty</a></li>
+                          <li><a class="dropdown-item" href="#">Tambah Qty</a></li>
+                        </ul>
+                      </div>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{url('/getLaporBuku')}}">Laporan Buku</a>
@@ -68,17 +77,6 @@
                             </span>
                         @enderror
                         </div>      
-                    </div>
-                </div>
-                     
-                <div class='col-md-4 form-group mx-auto mb-2'>
-                    <div class="col text-center">
-                        <select wire:model="pilih_sup" class="form-select">
-                            <option value="none">Pilih Distributor Buku</option>
-                            <?php foreach($supplier_buku as $k => $v){ ?>
-                                <option value="{{$v['id']}}">{{$v['nama_supplier']}}</option>
-                            <?php } ?>
-                        </select>
                     </div>
                 </div>
                 
