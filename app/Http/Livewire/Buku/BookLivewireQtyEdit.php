@@ -17,6 +17,11 @@ class BookLivewireQtyEdit extends Component
     public $nama_buku;
     public $pilih_buku;
     public $selected;
+    public $ids; 
+    
+    protected $rules = [
+        'qty' => 'required|max:20',
+    ];
     
     protected $listeners = [
         'getbook',
@@ -26,22 +31,24 @@ class BookLivewireQtyEdit extends Component
         $this->data = jB::select(DB::raw("lib_buku.*, lib_jumlah_buku.*"))->where('lib_jumlah_buku.id', $id)
                 ->leftJoin('lib_buku', 'lib_buku.id', '=', 'lib_jumlah_buku.id_buku')
                   ->get()->toArray();
+        $this->ids = $id;
         
         foreach($this->data as $k => $v){
-            $this->ids = $id;
+            
             $this->selected = $v['id_buku'];
             $this->nama_buku = $v['judul'];
+            $this->id_buku = $v['id_buku'];
             $this->qty = $v['jumlah_buku'];
             $this->jumlah_buku = $v['jumlah_buku'];
         }
     }
     
     public function masukEditBukuQty(){
+        $validatedData = $this->validate();
+        
          $arr_masuk = [
           'id_buku' => $this->id_buku,
           'jumlah_buku' => $this->qty,
-          'supplier_id' => $this->pilih_sup,
-          'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s')
         ];
          
@@ -50,13 +57,13 @@ class BookLivewireQtyEdit extends Component
         } else {
             DB::beginTransaction();
             try {
-
-               jB::insert($arr_masuk);
+                jB::where('id', $this->ids)
+                    ->update($arr_masuk);
 
                DB::commit();
 
-               Session::flash('message', "Quantity buku telah ditambah");
-               return redirect('qty_buku');
+               Session::flash('message', "Quantity buku telah diubah");
+               return redirect('qty_dft');
             } catch (\Exception $e) {
                 DB::rollback();
                 dd($e);

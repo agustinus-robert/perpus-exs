@@ -41,9 +41,11 @@
                     </div>
                 </div>
             @endif
-            
+    
+            <form wire:submit.prevent="masukEditBukuQty">
      <div class='col-md-4 form-group mx-auto mb-4'>
         <div class="col text-center">
+            
             <select class="form-select" wire:model="selected" id="select-buku">
                 <option value="none">None</option>
                 <?php foreach($semua_buku as $k => $v){  
@@ -64,8 +66,8 @@
                 </div>
             </div>
             
-        <form wire:submit.prevent="masukBukuQty">
-                <input type="hidden" class="form-control" wire:model="id_buku" />
+        
+                <input type="hidden" wire:model="ids">
                 <div class="col-xs-12 mb-2">  
                     <div class="row">
                         <div class="col-xs-12 mb-2 text-center">
@@ -83,7 +85,7 @@
                 <div class='col-md-12 form-group'>
                     <div class="col text-center">
                     
-                     <button type="submit" class="btn btn-primary">Tambah Qty</button>
+                     <button type="submit" class="btn btn-warning">Edit Qty</button>
                     </div>
                 </div>
         </form>
