@@ -1,6 +1,4 @@
-@extends('header')
-
-
+@extends('layout')
      @section('konten')
      <div class='row p-4'>
         <h2 class='text-center'>Kelola Buku</h2>
