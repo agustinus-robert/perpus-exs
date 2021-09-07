@@ -21,7 +21,7 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <li><a class="dropdown-item" href="{{url('/daftar_qty')}}">Daftar Qty</a></li>
+                          <li><a class="dropdown-item" href="{{url('/qty_dft')}}">Daftar Qty</a></li>
                           <li><a class="dropdown-item" href="{{url('/qty_buku')}}">Tambah Qty</a></li>
                         </ul>
                       </div>
@@ -73,7 +73,7 @@
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'judul', name: 'judul'},
 
-            {data: 'qty', name: 'qty'},
+            {data: 'jml_buku', name: 'jml_buku'},
 
             {data: 'action', name: 'action', orderable: false, searchable: false},
 
