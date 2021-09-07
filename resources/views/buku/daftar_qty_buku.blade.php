@@ -35,6 +35,14 @@
         </div>
     </div>
     
+         @if (session()->has('message-qty-edit'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} Qty berhasil diubah
+                    </div>
+                </div>
+            @endif
+            
         @if (session()->has('message-hapus'))
                 <div class="col-md-12">
                     <div class="alert alert-success">
