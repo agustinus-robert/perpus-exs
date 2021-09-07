@@ -6,7 +6,6 @@ use App\supBuku as sB;
 use App\jmlBuku as jB;
 use Session;
 use Illuminate\Support\Facades\DB;
-use Livewire\Component;
 
 use Livewire\Component;
 
@@ -24,12 +23,15 @@ class BookLivewireQtyEdit extends Component
     ];
     
     public function mount($id){          
-        $this->data = jB::select("*")->where('id', $id)
+        $this->data = jB::select(DB::raw("lib_buku.*, lib_jumlah_buku.*"))->where('lib_jumlah_buku.id', $id)
+                ->leftJoin('lib_buku', 'lib_buku.id', '=', 'lib_jumlah_buku.id_buku')
                   ->get()->toArray();
         
         foreach($this->data as $k => $v){
-            $this->ids = $v['id'];
-            $this->id_buku = $v['isbn'];
+            $this->ids = $id;
+            $this->selected = $v['id_buku'];
+            $this->nama_buku = $v['judul'];
+            $this->qty = $v['jumlah_buku'];
             $this->jumlah_buku = $v['jumlah_buku'];
         }
     }
