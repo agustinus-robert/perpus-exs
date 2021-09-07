@@ -70,6 +70,10 @@ class BukuController extends Controller
         return view('buku.qty_buku');
     }
     
+    public function daftar_qty(){
+        return view('buku.daftar_qty_buku');
+    }
+    
     public function hapus($id){ 
         $get_sts = Buku::where('id', $id)->delete();
         
