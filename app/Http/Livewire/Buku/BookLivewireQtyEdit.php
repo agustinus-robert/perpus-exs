@@ -23,6 +23,16 @@ class BookLivewireQtyEdit extends Component
         'getbook',
     ];
     
+    public function mount($id){          
+        $this->data = jB::select("*")->where('id', $id)
+                  ->get()->toArray();
+        
+        foreach($this->data as $k => $v){
+            $this->ids = $v['id'];
+            $this->id_buku = $v['isbn'];
+            $this->jumlah_buku = $v['jumlah_buku'];
+        }
+    }
     
     public function masukEditBukuQty(){
          $arr_masuk = [
