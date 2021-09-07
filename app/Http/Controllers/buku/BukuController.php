@@ -89,15 +89,20 @@ class BukuController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
+                        $btn = '<a href="'.url('get_edit_buku_qty/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
                         $btn .= "|";
-                        $btn .= '<a href="'.url('delete_buku/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
+                        $btn .= '<a href="'.url('delete_buku_qty/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
         }
         
         return view('buku.daftar_qty_buku');
+    }
+    
+    public function get_edit_qty($id){
+        $data['id'] = $id;
+        return View('buku.edit_qty', $data);
     }
     
     public function hapus($id){ 
