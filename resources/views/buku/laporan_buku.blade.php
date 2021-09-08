@@ -52,7 +52,6 @@
                         <th>Penerbit</th>
                         <th>ISBN</th>
                         <th>Jumlah Buku</th>
-                        <th>Nama Supplier</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -80,7 +79,6 @@
             {data: 'penerbit', name: 'penerbit'},
             {data: 'isbn', name: 'isbn'},
             {data: 'jml_buku', name: 'jml_buku'},
-            {data: 'nama_supplier', name: 'nama_supplier'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
 
         ]
