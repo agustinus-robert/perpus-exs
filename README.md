@@ -37,7 +37,7 @@ Alur Program
 <h3>Modul ketiga Peminjaman</h3>
 <hr>
 <p><b>Peringatan:</b></p>
-<p>Jika pengunjung dan buku sudah ada data, Maka bisa melakukan <u class="border-bottom:1px solid blue;">transaksi peminjaman<u></p>
+<p>Jika pengunjung dan buku sudah ada data, Maka bisa melakukan transaksi peminjaman</p>
     <ul>
         <li>Transaksi peminjaman</li>
         <li>Jika sudah melakukan transaksi, maka akan masuk pada pending peminjaman (Untuk Approve)</li>
