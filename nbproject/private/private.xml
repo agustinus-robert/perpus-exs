@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/pengembalian/trans_pengembalian.blade.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/denda/daftar_denda.blade.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/pengembalian/index.blade.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/livewire/denda/denda-livewire.blade.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/app/Http/Controllers/buku/BukuController.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/livewire/buku/book-livewire-qty.blade.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/routes/web.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/livewire/pengembalian/pengembalian-livewire.blade.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/denda/index.blade.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/pengembalian/proses_pengembalian_peminjaman.blade.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/resources/views/buku/qty_buku.blade.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/perpus-exs/app/Http/Livewire/Buku/BookLivewireQty.php</file>
         </group>
     </open-files>
 </project-private>

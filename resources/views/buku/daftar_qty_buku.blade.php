@@ -51,6 +51,14 @@
                 </div>
             @endif
             
+             @if (session()->has('message-hapus-data'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} Qty berhasil dihapus
+                    </div>
+                </div>
+            @endif
+            
                 <table class="table table-bordered data-table">
                 <thead>
                     <tr>

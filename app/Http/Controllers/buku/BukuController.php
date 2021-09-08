@@ -5,6 +5,7 @@ namespace App\Http\Controllers\buku;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\bukuModel as Buku;
+use App\jmlBuku as jB;
 use Illuminate\Support\Facades\DB;
 use DataTables;
 use Session;
@@ -87,7 +88,7 @@ class BukuController extends Controller
                     ->addColumn('action', function($row){
                         $btn = '<a href="'.url('get_edit_buku_qty/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
                         $btn .= "|";
-                        $btn .= '<a href="'.url('delete_buku_qty/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
+                        $btn .= '<a href="'.url('get_buku_qty_hapus/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
@@ -99,6 +100,15 @@ class BukuController extends Controller
     public function get_edit_qty($id){
         $data['id'] = $id;
         return View('buku.edit_qty', $data);
+    }
+    
+    public function hapus_qty($id){
+         $get_jml = jB::where('id', $id)->delete();
+        
+        if($get_jml){
+           Session::flash('message-hapus-data', "Jumlah buku berhasil dihapus");
+           return redirect('/daftar_qty');
+        }
     }
     
     public function hapus($id){ 

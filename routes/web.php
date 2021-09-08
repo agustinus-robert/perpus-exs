@@ -38,6 +38,7 @@ Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
 Route::get('/daftar_qty','buku\BukuController@daftar_qty')->name('qty_bk');
 Route::get('/get_edit_buku_qty/{id}','buku\BukuController@get_edit_qty');
+Route::get('/get_buku_qty_hapus/{id}','buku\BukuController@hapus_qty');
 
 Route::get('/get_edit_buku/{id}','buku\BukuController@edit');
 Route::get('/pengunjung');
