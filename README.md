@@ -6,14 +6,15 @@ Framework: Laravel
 
 Full Stack Framework: Livewire
 
-Penginstalaan
+<h3>Penginstalaan</h3>
 
 <ul>
     <li>Clone Project</li>
     <li>Composer Install</li>
     <li>cp .env.example .env</li>
     <li>artisan key:generate</li>
-    <li>akses http://localhost/perpus-eks</li>
+    <li>Tidak perlu php artisan serve</li>
+    <li>akses langsung http://localhost/perpus-eks</li>
 </ul>
 
 Alur Program
