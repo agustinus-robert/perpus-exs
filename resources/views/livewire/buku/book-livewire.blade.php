@@ -1,8 +1,8 @@
 <div>
-    <div class='row p-4'>
+   <div class='row p-4'>
         <h2 class='text-center'>Kelola Buku</h2>
         <hr>
-        <div class='row justify-content-center'>
+          <div class='row justify-content-center'>
             <nav class="col-md-6 navbar navbar-expand-lg navbar-light bg-light">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mx-auto">
@@ -13,7 +13,16 @@
                       <a class="nav-link" href="{{url('/buku-add')}}">Tambah Buku</a>
                     </li>
                      <li class="nav-item">
-                      <a class="nav-link" href="{{url('/qty_buku')}}">Setting Buku</a>
+                     <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Setting Buku
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="{{url('/daftar_qty')}}">Daftar Qty</a></li>
+                          <li><a class="dropdown-item" href="{{url('/qty_buku')}}">Tambah Qty</a></li>
+                        </ul>
+                      </div>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{url('/getLaporBuku')}}">Laporan Buku</a>

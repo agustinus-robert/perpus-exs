@@ -21,7 +21,7 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <li><a class="dropdown-item" href="{{url('/qty_dft')}}">Daftar Qty</a></li>
+                          <li><a class="dropdown-item" href="{{url('/daftar_qty')}}">Daftar Qty</a></li>
                           <li><a class="dropdown-item" href="{{url('/qty_buku')}}">Tambah Qty</a></li>
                         </ul>
                       </div>
