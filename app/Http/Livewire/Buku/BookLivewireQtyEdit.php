@@ -63,7 +63,7 @@ class BookLivewireQtyEdit extends Component
                DB::commit();
 
                Session::flash('message-qty-edit', "Quantity buku telah diubah");
-               return redirect('qty_dft');
+               return redirect('daftar_qty');
             } catch (\Exception $e) {
                 DB::rollback();
                 dd($e);

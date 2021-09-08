@@ -36,7 +36,7 @@ Route::get('/proses_kembali/{id}','Pengembalian\PengembalianController@proses_pe
 Route::get('/buku-add','buku\BukuController@tambah');
 Route::get('/delete_buku/{id}','buku\BukuController@hapus');
 Route::get('/qty_buku','buku\BukuController@tambah_qty_buku');
-Route::get('/qty_dft','buku\BukuController@daftar_qty')->name('qty_bk');
+Route::get('/daftar_qty','buku\BukuController@daftar_qty')->name('qty_bk');
 Route::get('/get_edit_buku_qty/{id}','buku\BukuController@get_edit_qty');
 
 Route::get('/get_edit_buku/{id}','buku\BukuController@edit');
