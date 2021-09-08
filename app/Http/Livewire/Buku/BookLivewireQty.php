@@ -84,7 +84,6 @@ class BookLivewireQty extends Component
     public function render()
     {
         $data['semua_buku'] = bm::select('*')->get()->toArray();
-        $data['supplier_buku'] = sB::select('*')->get()->toArray();
          $this->emit('select2');
          
         return view('livewire.buku.book-livewire-qty', $data);
