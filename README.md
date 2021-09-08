@@ -35,6 +35,7 @@ Alur Program
 </ul>
 
 <h3>Modul ketiga Peminjaman</h3>
+<hr>
 <p><b>Peringatan:</b></p>
 <p>Jika pengunjung dan buku sudah ada data, Maka bisa melakukan <u class="border-bottom:1px solid blue;">transaksi peminjaman<u></p>
     <ul>
@@ -50,10 +51,11 @@ Alur Program
         <li>Laporan mencatat semua transaksi pengembalian</li>
     </ul>
     
-    <h3>Modul Kelima Deda</h3>
+    <h3>Modul Kelima Denda</h3>
     <hr>
     <ul>
-        <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan</li></ul>
+        <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan</li>
+    </ul>
 
 Kunjungi
 
