@@ -16,6 +16,17 @@ Penginstalaan
     <li>akses http://localhost/perpus-eks</li>
 </ul>
 
+Alur Program
+
+<h3>Modul pertama Buku</h3>
+<hr>
+<ul>
+    <li>Tambahkan Buku</li>
+    <li>Lihat Daftar Buku (Jika terjadi kesalahan penginputan, klik edit. Untuk menghapus data, klik delete)</li>
+    <li>Tambahkan QTY buku</li>
+    <li>Jika ingin buka semua laporan, klik laporan</li>
+</ul>
+
 Kunjungi
 
 www.coderpartai.com
