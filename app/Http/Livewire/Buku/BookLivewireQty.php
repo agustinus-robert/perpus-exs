@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Buku;
 use App\bukuModel as bM;
-use App\supBuku as sB;
 use App\jmlBuku as jB;
 use Session;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +25,6 @@ class BookLivewireQty extends Component
          $arr_masuk = [
           'id_buku' => $this->id_buku,
           'jumlah_buku' => $this->qty,
-          'supplier_id' => $this->pilih_sup,
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s')
         ];
@@ -58,26 +56,15 @@ class BookLivewireQty extends Component
               ->leftJoin('lib_jumlah_buku', 'lib_buku.id', '=', 'lib_jumlah_buku.id_buku')
               ->where('lib_buku.id', $id)
               ->get()->toArray();
-//                 ->toSql();
-//         dd($gets);
-         
          if($gets){
            foreach($gets as $k => $v){
               $this->id_buku = $v['id_b'];
               $this->nama_buku = $v['judul'];
               $this->selected = $v['id_b'];
-             
-           
-//              if(!empty($v['jml_buku'])){
-//                $this->qty = $v['jml_buku'];
-//              } else {
-//                $this->qty = 0;
-//              }
            }
          }else{
              $this->id_buku = 0;
              $this->nama_buku = "Data buku tidak ada";
-            // $this->qty = "Data buku tidak ada";
          }
     }
     
