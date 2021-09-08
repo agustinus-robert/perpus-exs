@@ -27,6 +27,13 @@ Alur Program
     <li>Jika ingin buka semua laporan, klik laporan</li>
 </ul>
 
+<h3>Modul Pengunjung</h3>
+<hr>
+<ul>
+    <li>Tambahkan Pengunjung</li>
+    <li>Setelah tertambah, lihat daftar pengunjung, (Jika terjadi kesalahan penginputan, klik edit. Untuk menghapus, klik delete)</li>
+</ul>
+
 Kunjungi
 
 www.coderpartai.com
