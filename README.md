@@ -39,7 +39,7 @@ Alur Program
 <p>Jika pengunjung dan buku sudah ada data, Maka bisa melakukan <u class="border-bottom:1px solid blue;">transaksi peminjaman<u></p>
     <ul>
         <li>Transaksi peminjaman</li>
-        <li>Jika sudah melakukan transaksi, maka akan masuk pada pending peminjaman (Untuk Approve)<li>
+        <li>Jika sudah melakukan transaksi, maka akan masuk pada pending peminjaman (Untuk Approve)</li>
         <li>Laporan Peminjaman mencatat semua transaksi</li>
     </ul>
     
