@@ -18,7 +18,7 @@ Full Stack Framework: Livewire
     <li>akses langsung http://localhost/perpus-eks</li>
 </ul>
 
-Alur Program
+----------------------------- Alur Program -----------------------------
 
 <h3>Modul pertama Buku</h3>
 <hr>
