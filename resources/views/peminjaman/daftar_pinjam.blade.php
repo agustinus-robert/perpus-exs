@@ -1,4 +1,4 @@
-@extends('header')
+@extends('layout')
 
 @section('konten')
 <div class='row p-4'>

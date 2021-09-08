@@ -1,4 +1,4 @@
-@extends('header')
+@extends('layout')
 
 @section('konten')
  @if (session()->has('message'))
