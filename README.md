@@ -54,9 +54,10 @@ Alur Program
 <h3>Modul Kelima Denda</h3>
 <hr>
     <ul>
-        <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan</li>
+        <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan, maka data akan muncul pada denda</li>
     </ul>
 
-Kunjungi
 
-www.coderpartai.com
+<h3 style="text-center">Kunjungi</h3>
+
+<p style="text-center">www.coderpartai.com</h3>
