@@ -11,7 +11,7 @@ Full Stack Framework: Livewire
 <ul>
     <li>Clone Project</li>
     <li>Composer Install</li>
-    <li>Linux: cp .env.example .env | windows: copy .env.example .enx </li>
+    <li>Linux: cp .env.example .env | windows: copy .env.example .env </li>
     <li>php artisan key:generate</li>
     <li>Tidak perlu php artisan serve</li>
     <li>akses langsung http://localhost/perpus-eks</li>
