@@ -27,7 +27,7 @@ Alur Program
     <li>Jika ingin buka semua laporan, klik laporan</li>
 </ul>
 
-<h3>Modul Pengunjung</h3>
+<h3>Modul kedua Pengunjung</h3>
 <hr>
 <ul>
     <li>Tambahkan Pengunjung</li>
