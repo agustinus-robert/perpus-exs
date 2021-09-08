@@ -1,6 +1,6 @@
 <h1>Beta Testing</h1>
 
-Aplikasi versi 1 perpustakaan (Beta Testing)
+Aplikasi Open Source versi 1 perpustakaan (Beta Testing)
 
 Framework: Laravel
 
