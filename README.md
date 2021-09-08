@@ -10,6 +10,7 @@ Full Stack Framework: Livewire
 
 <ul>
     <li>Clone Project</li>
+    <li>Buat database bernama perpustakaan, lalu execute perpustakaan.sql</li>
     <li>Composer Install</li>
     <li>Linux: cp .env.example .env | windows: copy .env.example .env </li>
     <li>php artisan key:generate</li>
