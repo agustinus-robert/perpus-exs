@@ -34,6 +34,27 @@ Alur Program
     <li>Setelah tertambah, lihat daftar pengunjung, (Jika terjadi kesalahan penginputan, klik edit. Untuk menghapus, klik delete)</li>
 </ul>
 
+<h3>Modul ketiga Peminjaman</h3>
+<p><b>Peringatan:</b></p>
+<p>Jika pengunjung dan buku sudah ada data, Maka bisa melakukan <u class="border-bottom:1px solid blue;">transaksi peminjaman<u></p>
+    <ul>
+        <li>Transaksi peminjaman</li>
+        <li>Jika sudah melakukan transaksi, maka akan masuk pada pending peminjaman (Untuk Approve)<li>
+        <li>Laporan Peminjaman mencatat semua transaksi</li>
+    </ul>
+    
+    <h3>Modul keempat Pengembalian</h3>
+    <hr>
+    <ul>
+        <li>Transaksi Pengembalian bisa dilakukan jika sudah ada peminjaman, dan status approve</li>
+        <li>Laporan mencatat semua transaksi pengembalian</li>
+    </ul>
+    
+    <h3>Modul Kelima Deda</h3>
+    <hr>
+    <ul>
+        <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan</li></ul>
+
 Kunjungi
 
 www.coderpartai.com
