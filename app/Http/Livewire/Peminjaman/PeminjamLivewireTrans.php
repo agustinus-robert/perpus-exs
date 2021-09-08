@@ -32,12 +32,10 @@ class PeminjamLivewireTrans extends Component
                  . 'lib_buku.pengarang as pengarang, '
                  . 'lib_buku.penerbit as penerbit, '
                  . 'lib_buku.isbn as isbn, '
-                 . 'lib_supplier.nama_supplier as nama_supplier, '
                  . 'lib_jumlah_buku.id as id, '
                  . 'lib_buku.id as awal_id'
                 ))
               ->leftJoin('lib_jumlah_buku', 'lib_buku.id', '=', 'lib_jumlah_buku.id_buku')
-              ->leftJoin('lib_supplier', 'lib_jumlah_buku.supplier_id', '=', 'lib_supplier.id')
               ->where('lib_buku.id', $id)
               ->groupBy('lib_buku.id') 
               ->get()->toArray();
@@ -80,13 +78,11 @@ class PeminjamLivewireTrans extends Component
                  . 'lib_buku.pengarang as pengarang, '
                  . 'lib_buku.penerbit as penerbit, '
                  . 'lib_buku.isbn as isbn, '
-                 . 'lib_supplier.nama_supplier as nama_supplier, '
                  . 'lib_jumlah_buku.id as id, '
                  . 'lib_buku.foto as foto, '
                  . 'lib_buku.id as awal_id'
                 ))
               ->leftJoin('lib_jumlah_buku', 'lib_buku.id', '=', 'lib_jumlah_buku.id_buku')
-              ->leftJoin('lib_supplier', 'lib_jumlah_buku.supplier_id', '=', 'lib_supplier.id')
               ->where('lib_buku.id', $id)
               ->groupBy('lib_buku.id') 
               ->get()->toArray();
