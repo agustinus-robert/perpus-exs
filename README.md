@@ -44,15 +44,15 @@ Alur Program
         <li>Laporan Peminjaman mencatat semua transaksi</li>
     </ul>
     
-    <h3>Modul keempat Pengembalian</h3>
-    <hr>
-    <ul>
-        <li>Transaksi Pengembalian bisa dilakukan jika sudah ada peminjaman, dan status approve</li>
-        <li>Laporan mencatat semua transaksi pengembalian</li>
-    </ul>
+<h3>Modul keempat Pengembalian</h3>
+<hr>
+ <ul>
+   <li>Transaksi Pengembalian bisa dilakukan jika sudah ada peminjaman, dan status approve</li>
+   <li>Laporan mencatat semua transaksi pengembalian</li>
+ </ul>
     
-    <h3>Modul Kelima Denda</h3>
-    <hr>
+<h3>Modul Kelima Denda</h3>
+<hr>
     <ul>
         <li>Lakukan transaksi pengembalian, jika terdapat pengembalian buku yang melanggar aturan</li>
     </ul>
