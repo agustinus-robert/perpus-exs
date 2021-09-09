@@ -52,13 +52,7 @@ class BukuController extends Controller
               
             return Datatables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
-                        $btn .= "|";
-                        $btn .= '<a href="'.url('delete_buku/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
-                        return $btn;
-                    })->rawColumns(['action'])->make(true);
-
+                   ->make(true);
         }
 
         return view('buku.laporan_buku');
