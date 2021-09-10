@@ -20,10 +20,10 @@
         </div>
     </div>
     
-        @if (session()->has('message-hapus'))
+        @if (session()->has('message-hapus-pengunjung'))
                 <div class="col-md-12">
                     <div class="alert alert-success">
-                        {{ session('message') }} Buku berhasil dihapus
+                        {{ session('message') }} Pengunjung berhasil dihapus
                     </div>
                 </div>
             @endif
@@ -31,7 +31,7 @@
             @if(session()->has('message-edit-pengunjung'))
                  <div class="col-md-12">
                     <div class="alert alert-success">
-                        {{ session('message') }} Buku berhasil diedit
+                        {{ session('message') }} Pengunjung berhasil diedit
                     </div>
                 </div>
             @endif

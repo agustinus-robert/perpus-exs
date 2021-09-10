@@ -5,6 +5,8 @@ namespace App\Http\Controllers\pengunjung;
 use App\Http\Controllers\Controller;
 use App\pengunjungPerpus as Pp;
 use Yajra\DataTables\DataTables;
+
+use Session;
 use Illuminate\Http\Request;
 
 class PengujungController extends Controller
@@ -28,13 +30,22 @@ class PengujungController extends Controller
                     ->addColumn('action', function($row){
                         $btn = '<a href="'.url('get_edit_pengunjung/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
                         $btn .= "|";
-                        $btn .= '<a href="'.url('delete_buku/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
+                        $btn .= '<a href="'.url('hapus_pengunjung/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
                         return $btn;
                     })->rawColumns(['action'])->make(true);
 
         }
         
         return View('pengunjung.daftar_pengunjung');
+    }
+    
+    public function hapus_pengunjung($id){
+        $get_sts = Pp::where('id', $id)->delete();
+        
+        if($get_sts){
+           Session::flash('message-hapus-pengunjung', "Pengunjung berhasil dihapus");
+           return redirect('/getDaftarPengunjung');
+        }
     }
     
     public function get_edit_pengunjung_dt($id){
