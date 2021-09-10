@@ -28,6 +28,14 @@
                 </div>
             @endif
             
+            @if(session()->has('message-edit-pengunjung'))
+                 <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }} Buku berhasil diedit
+                    </div>
+                </div>
+            @endif
+            
                 <table class="table table-bordered data-table">
                 <thead>
                     <tr>

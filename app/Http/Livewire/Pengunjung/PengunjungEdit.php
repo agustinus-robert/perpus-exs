@@ -44,7 +44,7 @@ class PengunjungEdit extends Component
                    
            DB::commit();
            
-           Session::flash('message', "Pengunjung telah diedit");
+           Session::flash('message-edit-pengunjung', "Pengunjung telah diedit");
            return redirect('getDaftarPengunjung');
         } catch (\Exception $e) {
             DB::rollback();
