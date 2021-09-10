@@ -26,7 +26,7 @@ class PengujungController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $btn = '<a href="'.url('get_edit_buku/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
+                        $btn = '<a href="'.url('get_edit_pengunjung/'.$row->id).'" class="edit btn btn-warning btn-sm">Edit</a>';
                         $btn .= "|";
                         $btn .= '<a href="'.url('delete_buku/'.$row->id).'" class="edit btn btn-danger btn-sm" onclick="return confirm('."'Are you sure you want to delete this item?'".');">Hapus</a>';
                         return $btn;
@@ -35,5 +35,10 @@ class PengujungController extends Controller
         }
         
         return View('pengunjung.daftar_pengunjung');
+    }
+    
+    public function get_edit_pengunjung_dt($id){
+        $data['id'] = $id;
+        return View('pengunjung.edit_pengunjung', $data);
     }
 }

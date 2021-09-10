@@ -21,6 +21,7 @@ Route::get('/getLaporBuku','buku\BukuController@getLaporanBuku')->name('lb');
 Route::get('/index_pengunjung','pengunjung\PengujungController@index');
 Route::get('/tambah_pengunjung','pengunjung\PengujungController@tambah');
 Route::get('/getDaftarPengunjung','pengunjung\PengujungController@getDaftarPengunjung')->name('pb');
+Route::get('/get_edit_pengunjung/{id}','pengunjung\PengujungController@get_edit_pengunjung_dt');
 
 Route::get('/index_peminjaman','peminjaman\PinjamController@index');
 Route::get('/transaksi_peminjaman','peminjaman\PinjamController@transaksi_pemijaman')->name('tb');
