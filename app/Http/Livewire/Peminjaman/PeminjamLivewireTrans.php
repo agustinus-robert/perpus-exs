@@ -16,7 +16,6 @@ class PeminjamLivewireTrans extends Component
     public $id_pgj;
     public $qty_tb;
     public $detail = [];
-  //  public $jml_pjm;
     public $data_buku = [];
     
     public function mount($id){
@@ -24,9 +23,6 @@ class PeminjamLivewireTrans extends Component
     }
     
     public function get_id_buku($id){
-//        $get = bM::select("*")->where('id', $id)
-//                  ->get()->toArray();   
-        
           $get = bM::select(DB::raw('SUM(lib_jumlah_buku.jumlah_buku) as jml_buku,'
                  . 'lib_buku.judul as judul, '
                  . 'lib_buku.pengarang as pengarang, '
@@ -93,27 +89,7 @@ class PeminjamLivewireTrans extends Component
     public function masukTransPinjam(){
         if(count($this->data_buku) < 1){
             Session::flash('message-cart-kosong', "Buku belum ada di cart transaksi");
-        } else {
-            //$link = $_SERVER["REQUEST_URI"];
-           
-//          $trans_pinjam = [];
-//          $trans_detail = [];
-//          foreach($this->data_buku as $k1 => $v1){
-//              foreach($v1 as $k2 => $v2){
-//                  
-//                  $trans_pinjam = [
-//                      'id_pengunjung' => $this->id_pgj,
-//                      'id_buku' => $v2['id_bk']
-//                  ];
-//                  
-//                  $trans_detail = [
-//                      'jumlah_pinjam' => $v2['jml_pinjam'],
-//                      'jumlah_aktual' => $v2['jml_stock']
-//                  ];
-//              }
-//          }
-            
-                    
+        } else {                    
             DB::beginTransaction();
             try {
 
