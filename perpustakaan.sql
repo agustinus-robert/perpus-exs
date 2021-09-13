@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 08, 2021 at 04:23 AM
+-- Generation Time: Sep 13, 2021 at 05:40 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -31,6 +31,7 @@ CREATE TABLE `lib_buku` (
   `id` int(11) NOT NULL,
   `judul` varchar(60) DEFAULT NULL,
   `pengarang` varchar(60) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
   `penerbit` varchar(60) DEFAULT NULL,
   `isbn` char(13) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,8 +40,10 @@ CREATE TABLE `lib_buku` (
 -- Dumping data for table `lib_buku`
 --
 
-INSERT INTO `lib_buku` (`id`, `judul`, `pengarang`, `penerbit`, `isbn`) VALUES
-(10, 'Aku', 'Chairil Anwar', 'Jakarta', '123456789');
+INSERT INTO `lib_buku` (`id`, `judul`, `pengarang`, `foto`, `penerbit`, `isbn`) VALUES
+(10, 'Aku', 'Chairil Anwar', NULL, 'Jakarta', '123456789'),
+(11, 'steve jobs', 'walter issacson', NULL, 'gramedia', '555666777'),
+(12, 'buku saya', 'saya sendiri', NULL, 'saya juga', '1222');
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,8 @@ CREATE TABLE `lib_jumlah_buku` (
 --
 
 INSERT INTO `lib_jumlah_buku` (`id`, `id_buku`, `jumlah_buku`, `created_at`, `updated_at`) VALUES
-(4, 10, 3, '2021-09-07 22:26:08', '2021-09-08 02:15:20');
+(6, 11, 2, '2021-09-08 08:00:14', '2021-09-08 08:00:14'),
+(7, 10, 5, '2021-09-12 10:00:21', '2021-09-12 10:00:21');
 
 -- --------------------------------------------------------
 
@@ -105,6 +109,14 @@ CREATE TABLE `lib_peminjam` (
   `status_denda` int(11) DEFAULT 0 COMMENT 'Jika 0 maka proses denda dapat dilakukan, jika 1 proses denda telah dilakukan'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `lib_peminjam`
+--
+
+INSERT INTO `lib_peminjam` (`id`, `id_pengunjung`, `tanggal_pinjam`, `tanggal_kembali`, `status`, `pengembalian`, `tgl_pengembalian`, `status_denda`) VALUES
+(7, 8, '2021-09-12', '2021-09-14', 1, 2, '2021-09-12', 0),
+(8, 8, NULL, NULL, 0, 0, NULL, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +131,14 @@ CREATE TABLE `lib_peminjaman_detail` (
   `jumlah_aktual` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `lib_peminjaman_detail`
+--
+
+INSERT INTO `lib_peminjaman_detail` (`id`, `id_trans_pinjam`, `id_buku`, `jumlah_pinjam`, `jumlah_aktual`) VALUES
+(8, 7, 10, 1, 5),
+(9, 8, 10, 2, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +152,13 @@ CREATE TABLE `lib_pengunjung` (
   `tgl_lahir` date DEFAULT NULL,
   `alamat` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lib_pengunjung`
+--
+
+INSERT INTO `lib_pengunjung` (`id`, `nama`, `no_kartu`, `tgl_lahir`, `alamat`) VALUES
+(8, 'agus', '123', '2021-09-02', 'solo');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +214,7 @@ ALTER TABLE `lib_pengunjung`
 -- AUTO_INCREMENT for table `lib_buku`
 --
 ALTER TABLE `lib_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `lib_denda`
@@ -205,25 +232,25 @@ ALTER TABLE `lib_denda_detail`
 -- AUTO_INCREMENT for table `lib_jumlah_buku`
 --
 ALTER TABLE `lib_jumlah_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lib_peminjam`
 --
 ALTER TABLE `lib_peminjam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `lib_peminjaman_detail`
 --
 ALTER TABLE `lib_peminjaman_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `lib_pengunjung`
 --
 ALTER TABLE `lib_pengunjung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
