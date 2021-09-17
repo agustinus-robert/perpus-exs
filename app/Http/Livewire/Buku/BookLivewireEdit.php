@@ -60,7 +60,8 @@ class BookLivewireEdit extends Component
         DB::beginTransaction();
         try {
            if(!is_string($this->photo)){
-            $this->photo->storePublicly('image');
+            //$this->photo->storePublicly('image');
+            $this->photo->storeAs('public/image', $this->photo->getClientOriginalName());
            }
            
            bM::where('id', $this->ids)

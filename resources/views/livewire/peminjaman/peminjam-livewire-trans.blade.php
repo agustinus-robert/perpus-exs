@@ -92,7 +92,7 @@
                      <b>Foto</b>
                      <div class="shadow p-3 mb-5" style="width:250px;height:250px;border:1px solid gray;">
                          <?php if(!empty($detail[0]['judul'])){ ?>
-                        <img style="width:160px;height:200px;" src='{{url('public/image/'.$detail[0]['foto'])}}'></img>
+                        <img style="width:160px;height:200px;" src='{{url('storage/app/public/image/'.$detail[0]['foto'])}}'></img>
                          <?php } else { ?>
                          <img class='img-thumbnail' src=''></img>
                         <?php } ?>

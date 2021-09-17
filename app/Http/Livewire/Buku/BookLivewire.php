@@ -37,7 +37,7 @@ class BookLivewire extends Component
           'foto' => $this->photo->getClientOriginalName()
         ];
 
-        $this->photo->storePublicly('image');
+        $this->photo->storeAs('public/image', $this->photo->getClientOriginalName());
         
         DB::beginTransaction();
         try {
