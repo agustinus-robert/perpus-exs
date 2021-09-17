@@ -108,14 +108,13 @@ class PeminjamLivewireTrans extends Component
                         jbk::where('id_buku', $v2['id_bk'])->update([
                             'jumlah_buku' => DB::raw('jumlah_buku - '.$v2['jml_pinjam'])
                         ]);
-                        
-                        foreach($jml as $k => $v_pjm){
-                            $trans_detail = [
-                                'id_buku' => $v2['id_bk'],
-                                'jumlah_pinjam' => $v2['jml_pinjam'],
-                                'jumlah_aktual' => $v2['jml_stock']
-                            ];
-                        }
+
+                        $trans_detail = [
+                            'id_buku' => $v2['id_bk'],
+                            'jumlah_pinjam' => $v2['jml_pinjam'],
+                            'jumlah_aktual' => $v2['jml_stock']
+                        ];
+           
                            
                         $trans_detail['id_trans_pinjam'] = $id_trans;
                         PjmDtl::create($trans_detail);  
