@@ -87,6 +87,16 @@
                         @enderror
                 </div>
             
+             <div class="col-xs-6 form-group mb-3">
+                        <label>Foto</label>
+                        <input wire:model="photo" class="form-control" type="file" />
+                        @error('photo')
+                            <span class="bg-danger text-white">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                </div>
+            
                 <div class='col-md-12 form-group'>
                     <div class="col text-center">
                     

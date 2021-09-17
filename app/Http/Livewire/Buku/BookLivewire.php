@@ -4,10 +4,15 @@ namespace App\Http\Livewire\Buku;
 use Illuminate\Support\Facades\DB;
 use App\bukuModel as bM;
 use Session;
+
+use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class BookLivewire extends Component
 {
+    use WithFileUploads;
+    
+    public $photo;
     public $no_isbn;
     public $judul_buku;
     public $pengarang;
@@ -18,6 +23,7 @@ class BookLivewire extends Component
         'judul_buku' => 'required|max:20',
         'pengarang' => 'required|max:100',
         'penerbit' => 'required',
+        'photo' => 'image|max:1024',
     ];
     
     public function masukBuku(){
@@ -27,10 +33,11 @@ class BookLivewire extends Component
           'isbn' => $this->no_isbn,
           'judul' => $this->judul_buku,
           'pengarang' => $this->pengarang,
-          'penerbit' => $this->penerbit
+          'penerbit' => $this->penerbit,
+          'foto' => $this->photo->getClientOriginalName()
         ];
-        
-  
+
+        $this->photo->storePublicly('image');
         
         DB::beginTransaction();
         try {
