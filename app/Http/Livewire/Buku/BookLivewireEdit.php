@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Buku;
 use Illuminate\Support\Facades\DB;
 use App\bukuModel as bM;
 use Session;
+
+use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class BookLivewireEdit extends Component
@@ -13,7 +15,9 @@ class BookLivewireEdit extends Component
     public $pengarang;
     public $penerbit;
     public $ids;
-   
+    public $photo; 
+    use WithFileUploads;
+    
     public $data;
     
     protected $rules = [
@@ -34,21 +38,30 @@ class BookLivewireEdit extends Component
             $this->judul_buku = $v['judul'];
             $this->pengarang = $v['pengarang'];
             $this->penerbit = $v['penerbit'];
+            $this->photo = $v['foto'];
         }
     }
     
     public function editSubmit(){
         $validatedData = $this->validate();
         
+        if(!is_string($this->photo)){
+            $this->photo = $this->photo->getClientOriginalName();
+        } 
+        
         $arr_edit = [
           'isbn' => $this->no_isbn,
           'judul' => $this->judul_buku,
           'pengarang' => $this->pengarang,
-          'penerbit' => $this->penerbit
+          'penerbit' => $this->penerbit,
+          'foto' => $this->photo
         ];
      
         DB::beginTransaction();
         try {
+           if(!is_string($this->photo)){
+            $this->photo->storePublicly('image');
+           }
            
            bM::where('id', $this->ids)
                     ->update($arr_edit);

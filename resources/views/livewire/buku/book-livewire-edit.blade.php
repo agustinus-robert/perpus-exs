@@ -79,6 +79,23 @@
                             </span>
                         @enderror
                 </div>
+                
+                 <div class="col-xs-6 form-group mb-3">
+                        <label>Foto</label>
+                        <input wire:model="photo" class="form-control" type="file" />
+                        
+                        <div class="col-md-12">
+                            <div class="alert alert-info">
+                                <strong>Gambar Sebelumnya: {{$photo}}</strong>
+                            </div>                   
+                        </div>
+                        
+                        @error('photo')
+                            <span class="bg-danger text-white">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                </div>
             
                 <div class='col-md-12 form-group'>
                     <div class="col text-center">
