@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\bukuModel as bM;
 use App\Peminjaman as Pjm;
 use App\PeminjamanDetail as PjmDtl;
+use App\jmlBuku as Jbk;
 use Session;
 use Livewire\Component;
 
@@ -92,21 +93,29 @@ class PeminjamLivewireTrans extends Component
         } else {                    
             DB::beginTransaction();
             try {
-
+                
                  $trans_pinjam = [
                     'id_pengunjung' => $this->id_pgj,
                  ];
+                 
+                
                  
                  $id_trans = Pjm::create($trans_pinjam)->id;
 
                 foreach($this->data_buku as $k1 => $v1){
                     foreach($v1 as $k2 => $v2){
+                          
+                        jbk::where('id_buku', $v2['id_bk'])->update([
+                            'jumlah_buku' => DB::raw('jumlah_buku - '.$v2['jml_pinjam'])
+                        ]);
                         
-                        $trans_detail = [
-                            'id_buku' => $v2['id_bk'],
-                            'jumlah_pinjam' => $v2['jml_pinjam'],
-                            'jumlah_aktual' => $v2['jml_stock']
-                        ];
+                        foreach($jml as $k => $v_pjm){
+                            $trans_detail = [
+                                'id_buku' => $v2['id_bk'],
+                                'jumlah_pinjam' => $v2['jml_pinjam'],
+                                'jumlah_aktual' => $v2['jml_stock']
+                            ];
+                        }
                            
                         $trans_detail['id_trans_pinjam'] = $id_trans;
                         PjmDtl::create($trans_detail);  
