@@ -23,10 +23,10 @@
                 </div>
             @endif
             
-    <div class="row">
+    <div class="row mt-3">
         
          
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class='col-md-12'>
              <input type='text' class='form-control' wire:model='cari_buku' placeholder='cari buku' />
              
@@ -114,7 +114,7 @@
            
         </div>
             
-        <div class="col-md-4">
+        <div class="col-md-3">
         <form wire:submit.prevent="masukTransPinjam" class="col-md-12">
                 <div class="row col-xs-12 form-group mb-2">
                     <table class="table">
