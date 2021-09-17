@@ -45,11 +45,15 @@
                     $i = 1;
                     foreach($daftar_proses as $k => $v){
                 ?>
+                    <input type="hidden" wire:model="kembali.{{ $k }}.id_buku" value="{{$v['det_buku']}}" />
+                    
                     <tr>
                         <td>{{$i++}}</td>
                         <td>{{$v['nama_buku']}}</td>
                         <td>{{$v['jml_buku']}}</td>
                     </tr>
+                    
+                    <input type="hidden" wire:model="kembali.{{ $k }}.jml_buku" value="{{$v['jml_buku']}}" />
                 <?php } ?>
 
                 </table>
