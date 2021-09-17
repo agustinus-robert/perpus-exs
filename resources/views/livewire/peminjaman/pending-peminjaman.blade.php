@@ -21,6 +21,30 @@
         </div>
     </div>
     
+     @if (session()->has('message-awal'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('message-awal') }} 
+                    </div>
+                </div>
+            @endif
+            
+             @if (session()->has('message-akh-awl'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('message-akh-awl') }} 
+                    </div>
+                </div>
+            @endif
+            
+             @if (session()->has('waktu-dob'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('waktu-dob') }} 
+                    </div>
+                </div>
+            @endif
+    
     <div class="row">    
         <form wire:submit.prevent="masukProsesTransaksi">
             <div class="col-md-8 p-3 mx-auto">

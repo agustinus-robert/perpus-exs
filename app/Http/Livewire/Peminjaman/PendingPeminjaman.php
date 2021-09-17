@@ -43,20 +43,30 @@ class PendingPeminjaman extends Component
           'status' => 1
         ];
         
-        DB::beginTransaction();
-        try {
-          
-           Pjm::where('id', $this->ids)
-                    ->update($arr_edit);
-        
-           DB::commit();
-
+        if(empty($this->waktu_awal) || empty($this->waktu_akhir)) {
+            Session::flash('waktu-dob','waktu pinjam dan kembali tidak boleh kosong');
+        }else if($this->waktu_awal ==  $this->waktu_akhir){
+            Session::flash('message-akh-awl','waktu awal pinjam tidak boleh sama dengan waktu kembali');       
+        } else if($this->waktu_awal < date('Y-m-d') || $this->waktu_akhir < date('Y-m-d')){
+            Session::flash('message-awal','pastikan waktu pinjam dan waktu kembali tidak boleh kurang dari tanggal sekarang');
            
-           Session::flash('message', "Proses Peminjaman Berhasil");
-           return redirect('daftar_trans_pinjam');
-        } catch (\Exception $e) {
-            DB::rollback();
-            dd($e);
+        } else {
+        
+            DB::beginTransaction();
+            try {
+
+               Pjm::where('id', $this->ids)
+                        ->update($arr_edit);
+
+               DB::commit();
+
+
+               Session::flash('message', "Proses Peminjaman Berhasil");
+               return redirect('daftar_trans_pinjam');
+            } catch (\Exception $e) {
+                DB::rollback();
+                dd($e);
+            }
         }
     }
 }
